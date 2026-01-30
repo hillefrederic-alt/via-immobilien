@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Legal Compliance** - Project setup, legal pages, design system ✓
 - [x] **Phase 2: Core Content Pages** - All 6 main pages with trust elements ✓
-- [ ] **Phase 3: Contact & Interactivity** - Contact form, maps, click-to-call
+- [x] **Phase 3: Contact & Interactivity** - Contact form, maps, click-to-call ✓
 - [ ] **Phase 4: SEO & Performance** - Optimization, analytics, local search
 
 ## Phase Details
@@ -89,10 +89,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Contact form component with validation and Web3Forms
-- [ ] 03-02-PLAN.md — OpenStreetMap component with Leaflet.js
-- [ ] 03-03-PLAN.md — Integrate form/map into kontakt.astro + create danke.astro
-- [ ] 03-04-PLAN.md — Visual verification checkpoint
+- [x] 03-01-PLAN.md — Contact form component with validation and Web3Forms ✓
+- [x] 03-02-PLAN.md — OpenStreetMap component with Leaflet.js ✓
+- [x] 03-03-PLAN.md — Integrate form/map into kontakt.astro + create danke.astro ✓
+- [x] 03-04-PLAN.md — Visual verification checkpoint ✓
 
 ### Phase 4: SEO & Performance
 **Goal**: Optimize for local search, measure traffic, and achieve Lighthouse 90+ scores
@@ -123,7 +123,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Legal Compliance | 3/3 | Complete ✓ | 2026-01-30 |
 | 2. Core Content Pages | 6/6 | Complete ✓ | 2026-01-30 |
-| 3. Contact & Interactivity | 0/4 | Planned | - |
+| 3. Contact & Interactivity | 4/4 | Complete ✓ | 2026-01-30 |
 | 4. SEO & Performance | 0/0 | Not started | - |
 
 ---
