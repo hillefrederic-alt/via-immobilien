@@ -74,6 +74,41 @@ const ogImage = new URL(image, Astro.site).toString();
         ]
       }}
     />
+
+    <!-- LocalBusiness JSON-LD Schema for Google rich results -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Via Immobilien - Denise Semmel",
+      "image": new URL('/logo.jpg', Astro.site).toString(),
+      "url": Astro.site?.toString(),
+      "telephone": "+49 176 33445373",
+      "email": "denise@via-immobilien.de",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "PLACEHOLDER_STREET",
+        "addressLocality": "PLACEHOLDER_CITY",
+        "addressRegion": "Hessen",
+        "postalCode": "PLACEHOLDER_ZIP",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.1109,
+        "longitude": 8.6821
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rhein-Main-Region"
+      },
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.instagram.com/via.immobilien/"
+      ]
+    })} />
+
+    <!-- Plausible Analytics - GDPR compliant, no cookie consent needed -->
+    <script defer data-domain="via-immobilien.de" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
     <Header />
