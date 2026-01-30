@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Vertrauen aufbauen durch authentische, ehrliche Darstellung — Besucher sollen sich verstanden fuhlen und den ersten Schritt wagen (Kontaktaufnahme).
-**Current focus:** Phase 2: Content Pages (Plan 02 complete)
+**Current focus:** Phase 2: Content Pages (Plan 04 complete)
 
 ## Current Position
 
 Phase: 2 of 4 (Core Content Pages)
-Plan: 2 of 6 in current phase
+Plan: 4 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 02-02-PLAN.md (Homepage)
+Last activity: 2026-01-30 — Completed 02-04-PLAN.md (So arbeite ich, FAQ, Kontakt pages)
 
-Progress: [██████░░░░] 60%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
@@ -70,8 +70,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-30T13:25:00Z
-Stopped at: Completed 02-02-PLAN.md (Homepage)
+Last session: 2026-01-30T14:25:00Z
+Stopped at: Completed 02-04-PLAN.md (So arbeite ich, FAQ, Kontakt pages)
 Resume file: None
 
 ## Phase 2 Progress
@@ -79,9 +79,9 @@ Resume file: None
 - 02-01: Component foundation (AOS, Section, Hero, ServiceCard, ProcessStep, Testimonial) - COMPLETE
 - 02-02: Homepage - COMPLETE
 - 02-03: Uber mich page - PENDING
-- 02-04: Leistungen page - PENDING
+- 02-04: So arbeite ich, FAQ, Kontakt pages - COMPLETE
 - 02-05: Footer Instagram link - COMPLETE
-- 02-06: Kontakt page - PENDING
+- 02-06: (reserved) - PENDING
 
 ---
 *State initialized: 2026-01-30*
