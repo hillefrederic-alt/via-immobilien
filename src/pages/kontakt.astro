@@ -9,6 +9,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ContactMap from '../components/ContactMap.astro';
 ---
 
 <BaseLayout
@@ -57,11 +59,16 @@ import Section from '../components/Section.astro';
 
       <div class="contact-form-area">
         <h2>Nachricht senden</h2>
-        <div class="form-placeholder">
-          <p>Kontaktformular wird in Kurze verfugbar sein.</p>
-          <p>Bis dahin erreichen Sie mich gerne telefonisch oder per E-Mail.</p>
-        </div>
+        <ContactForm />
       </div>
+    </div>
+  </Section>
+
+  <Section background="white">
+    <div class="map-section">
+      <h2>Unser Einzugsgebiet</h2>
+      <p class="map-subtext">Wir sind fur Sie in der gesamten Rhein-Main-Region tatig.</p>
+      <ContactMap />
     </div>
   </Section>
 
@@ -185,6 +192,23 @@ import Section from '../components/Section.astro';
 
   .form-placeholder p:last-child {
     margin-bottom: 0;
+  }
+
+  .map-section {
+    text-align: center;
+  }
+
+  .map-section h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .map-subtext {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
   }
 
   .what-to-expect {
