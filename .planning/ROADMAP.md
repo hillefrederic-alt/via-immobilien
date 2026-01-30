@@ -35,10 +35,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   6. Site displays correctly on mobile, tablet, and desktop devices
   7. Logo appears in header with correct styling and links to homepage
 
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD during planning
+- [ ] 01-01-PLAN.md - Astro project setup and design system foundation
+- [ ] 01-02-PLAN.md - Base layout, Header, and Footer components
+- [ ] 01-03-PLAN.md - Legal pages (Impressum, Datenschutz) and cookie consent
 
 ### Phase 2: Core Content Pages
 **Goal**: Deliver all 6 main content pages with complete text, images, and trust elements
