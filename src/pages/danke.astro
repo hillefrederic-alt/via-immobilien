@@ -1,0 +1,89 @@
+---
+/**
+ * Danke - Thank you page after successful form submission
+ *
+ * Confirms submission and invites user to follow on Instagram.
+ * Warm, personal tone to maintain connection after initial contact.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="Vielen Dank | Via Immobilien"
+  description="Ihre Nachricht wurde erfolgreich versendet. Wir melden uns in Kurze bei Ihnen."
+>
+  <Hero
+    headline="Vielen Dank!"
+    subheadline="Ihre Nachricht ist bei mir angekommen."
+    ctaText="Zur Startseite"
+    ctaHref="/"
+  />
+
+  <Section background="cream">
+    <div class="thank-you-content">
+      <p>Ich melde mich so schnell wie moglich bei Ihnen - in der Regel innerhalb von 24 Stunden.</p>
+
+      <p>Folgen Sie mir gerne auf Instagram fur Updates und Einblicke:</p>
+
+      <a
+        href="https://instagram.com/via_immobilien"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-button"
+      >
+        @via_immobilien auf Instagram folgen
+      </a>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .thank-you-content {
+    max-width: 600px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .thank-you-content p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .instagram-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    margin-top: var(--spacing-md);
+  }
+
+  .instagram-button:hover,
+  .instagram-button:focus {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .thank-you-content p {
+      font-size: var(--font-size-base);
+    }
+
+    .instagram-button {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>
