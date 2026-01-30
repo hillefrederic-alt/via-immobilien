@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation & Legal Compliance** - Project setup, legal pages, design system ✓
 - [x] **Phase 2: Core Content Pages** - All 6 main pages with trust elements ✓
 - [x] **Phase 3: Contact & Interactivity** - Contact form, maps, click-to-call ✓
-- [ ] **Phase 4: SEO & Performance** - Optimization, analytics, local search
+- [x] **Phase 4: SEO & Performance** - Optimization, analytics, local search ✓
 
 ## Phase Details
 
@@ -109,10 +109,13 @@ Plans:
   5. LocalBusiness schema markup exists with business name, address, phone, and service area
   6. Plausible Analytics tracks page views without requiring cookie consent
 
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 04-01: TBD during planning
+- [x] 04-01-PLAN.md — SEO foundation: astro-seo, sitemap, robots.txt ✓
+- [x] 04-02-PLAN.md — Page-specific SEO, LocalBusiness schema, Plausible Analytics ✓
+- [x] 04-03-PLAN.md — Performance optimization: font preloading, image loading ✓
+- [x] 04-04-PLAN.md — Verification checkpoint: Lighthouse audit, OG validation ✓
 
 ## Progress
 
@@ -124,7 +127,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation & Legal Compliance | 3/3 | Complete ✓ | 2026-01-30 |
 | 2. Core Content Pages | 6/6 | Complete ✓ | 2026-01-30 |
 | 3. Contact & Interactivity | 4/4 | Complete ✓ | 2026-01-30 |
-| 4. SEO & Performance | 0/0 | Not started | - |
+| 4. SEO & Performance | 4/4 | Complete ✓ | 2026-01-30 |
 
 ---
 *Roadmap created: 2026-01-30*
