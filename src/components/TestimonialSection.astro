@@ -1,0 +1,104 @@
+---
+/**
+ * TestimonialSection - Section wrapper for multiple testimonials
+ *
+ * Displays testimonials in a responsive grid layout with optional
+ * section title and description. Uses Section component for consistency.
+ *
+ * @example
+ * <TestimonialSection
+ *   title="Was Kunden sagen"
+ *   testimonials={[
+ *     { quote: "...", author: "Familie Muller", role: "Verkauf" },
+ *     { quote: "...", author: "Herr Schmidt", role: "Vermietung" }
+ *   ]}
+ * />
+ */
+
+import Section from './Section.astro';
+import Testimonial from './Testimonial.astro';
+
+interface TestimonialData {
+  /** The testimonial quote text */
+  quote: string;
+  /** Author name */
+  author: string;
+  /** Optional role/context */
+  role?: string;
+}
+
+interface Props {
+  /** Section title */
+  title?: string;
+  /** Section description */
+  description?: string;
+  /** Array of testimonial data */
+  testimonials: TestimonialData[];
+  /** Background color variant */
+  background?: 'cream' | 'white' | 'navy';
+}
+
+const {
+  title,
+  description,
+  testimonials,
+  background = 'white'
+} = Astro.props;
+---
+
+<Section background={background} class="testimonial-section">
+  {title && (
+    <header class="testimonial-section__header" data-aos="fade-up">
+      <h2 class="testimonial-section__title">{title}</h2>
+      {description && (
+        <p class="testimonial-section__description">{description}</p>
+      )}
+    </header>
+  )}
+
+  <div class="testimonial-section__grid">
+    {testimonials.map((testimonial, index) => (
+      <div data-aos="fade-up" data-aos-delay={String(index * 100)}>
+        <Testimonial
+          quote={testimonial.quote}
+          author={testimonial.author}
+          role={testimonial.role}
+        />
+      </div>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .testimonial-section__header {
+    text-align: center;
+    max-width: 700px;
+    margin-inline: auto;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .testimonial-section__title {
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .testimonial-section__description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .testimonial-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  /* Ensure single column on mobile */
+  @media (max-width: 640px) {
+    .testimonial-section__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
