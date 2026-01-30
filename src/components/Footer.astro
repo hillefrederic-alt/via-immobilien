@@ -1,0 +1,260 @@
+---
+/**
+ * Footer - 3-column responsive footer with brand, contact, and legal links
+ *
+ * Layout:
+ * - Column 1: Logo/Brand
+ * - Column 2: Contact info (phone, email, region, Instagram)
+ * - Column 3: Legal links (Impressum, Datenschutz)
+ *
+ * Responsive: Stacks on mobile, 3-column grid on tablet+
+ */
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__grid">
+      <!-- Column 1: Brand -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="Via Immobilien - Zur Startseite">
+          <span class="footer__logo-text">VIA IMMOBILIEN</span>
+        </a>
+      </div>
+
+      <!-- Column 2: Contact -->
+      <div class="footer__contact">
+        <h3 class="footer__heading">Kontakt</h3>
+        <address class="footer__address">
+          <a href="tel:+4917633445373" class="footer__link footer__link--contact">
+            <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>+49 176 33445373</span>
+          </a>
+          <a href="mailto:denise@via-immobilien.de" class="footer__link footer__link--contact">
+            <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>denise@via-immobilien.de</span>
+          </a>
+          <p class="footer__region">
+            <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Rhein-Main-Gebiet</span>
+          </p>
+          <a
+            href="https://www.instagram.com/via.immobilien"
+            class="footer__link footer__link--social"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Via Immobilien auf Instagram"
+          >
+            <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            <span>@via.immobilien</span>
+          </a>
+        </address>
+      </div>
+
+      <!-- Column 3: Legal -->
+      <div class="footer__legal">
+        <h3 class="footer__heading">Rechtliches</h3>
+        <nav class="footer__legal-nav" aria-label="Rechtliche Seiten">
+          <ul class="footer__legal-list">
+            <li>
+              <a href="/impressum" class="footer__link">Impressum</a>
+            </li>
+            <li>
+              <a href="/datenschutz" class="footer__link">Datenschutzerklarung</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {currentYear} Via Immobilien. Alle Rechte vorbehalten.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    padding-block: var(--spacing-3xl);
+    margin-top: auto;
+  }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--spacing-2xl);
+  }
+
+  @media (min-width: 640px) {
+    .footer__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+    }
+  }
+
+  /* Brand Column */
+  .footer__brand {
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer__brand {
+      text-align: left;
+    }
+  }
+
+  .footer__logo {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-cream);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__logo:hover,
+  .footer__logo:focus {
+    color: var(--color-gold);
+  }
+
+  .footer__logo-text {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.1em;
+  }
+
+  /* Headings */
+  .footer__heading {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Contact Column */
+  .footer__contact {
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer__contact {
+      text-align: left;
+    }
+  }
+
+  .footer__address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .footer__link--contact,
+  .footer__region {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  @media (min-width: 640px) {
+    .footer__link--contact,
+    .footer__region {
+      justify-content: flex-start;
+    }
+  }
+
+  .footer__region {
+    color: var(--color-cream);
+    opacity: 0.9;
+  }
+
+  .footer__icon {
+    flex-shrink: 0;
+  }
+
+  /* Links */
+  .footer__link {
+    color: var(--color-cream);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    font-size: var(--font-size-base);
+  }
+
+  .footer__link:hover,
+  .footer__link:focus {
+    color: var(--color-gold);
+  }
+
+  .footer__link--social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+  }
+
+  @media (min-width: 640px) {
+    .footer__link--social {
+      justify-content: flex-start;
+    }
+  }
+
+  /* Legal Column */
+  .footer__legal {
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer__legal {
+      text-align: left;
+    }
+  }
+
+  .footer__legal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .footer__legal-list li {
+    margin: 0;
+  }
+
+  /* Bottom / Copyright */
+  .footer__bottom {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(245, 240, 234, 0.15);
+    text-align: center;
+  }
+
+  .footer__copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-cream);
+    opacity: 0.7;
+    margin: 0;
+  }
+</style>
