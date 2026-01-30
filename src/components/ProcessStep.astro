@@ -1,0 +1,119 @@
+---
+/**
+ * ProcessStep - Timeline step for "So arbeite ich" section
+ *
+ * Displays a numbered step with title and description in a timeline layout.
+ * Includes visual indicator with number and connecting line to next step.
+ *
+ * @example
+ * <ProcessStep
+ *   step={1}
+ *   title="Erstgesprach"
+ *   description="Wir lernen uns kennen und besprechen Ihre Ziele..."
+ *   isLast={false}
+ * />
+ */
+
+interface Props {
+  /** Step number (1-4) */
+  step: number;
+  /** Step title */
+  title: string;
+  /** Step description */
+  description: string;
+  /** Is this the last step? (hides connecting line) */
+  isLast?: boolean;
+}
+
+const { step, title, description, isLast = false } = Astro.props;
+
+// Calculate animation delay based on step number
+const animationDelay = String((step - 1) * 100);
+---
+
+<div
+  class:list={['process-step', { 'process-step--last': isLast }]}
+  data-aos="fade-up"
+  data-aos-delay={animationDelay}
+>
+  <div class="process-step__indicator">
+    <span class="process-step__number">{step}</span>
+    {!isLast && <div class="process-step__line"></div>}
+  </div>
+
+  <div class="process-step__content">
+    <h3 class="process-step__title">{title}</h3>
+    <p class="process-step__description">{description}</p>
+  </div>
+</div>
+
+<style>
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-lg);
+    position: relative;
+  }
+
+  .process-step__indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .process-step__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    border-radius: var(--border-radius-full);
+    flex-shrink: 0;
+  }
+
+  .process-step__line {
+    width: 2px;
+    flex: 1;
+    background-color: var(--color-border);
+    margin-top: var(--spacing-sm);
+    min-height: var(--spacing-xl);
+  }
+
+  .process-step__content {
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .process-step--last .process-step__content {
+    padding-bottom: 0;
+  }
+
+  .process-step__title {
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-step__description {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .process-step {
+      gap: var(--spacing-md);
+    }
+
+    .process-step__number {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

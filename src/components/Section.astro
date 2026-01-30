@@ -1,0 +1,86 @@
+---
+/**
+ * Section - Reusable section wrapper with AOS animation support
+ *
+ * Provides consistent padding, background colors, and scroll animation
+ * for all page sections. Uses existing design tokens from global.css.
+ *
+ * @example
+ * <Section background="cream" animation="fade-up">
+ *   <h2>Section Title</h2>
+ *   <p>Section content...</p>
+ * </Section>
+ */
+
+interface Props {
+  /** Optional section ID for anchor links */
+  id?: string;
+  /** Additional CSS classes */
+  class?: string;
+  /** Background color variant */
+  background?: 'cream' | 'white' | 'navy';
+  /** AOS animation type (default: fade-up) */
+  animation?: string;
+  /** AOS animation delay in ms */
+  animationDelay?: string;
+}
+
+const {
+  id,
+  class: className = '',
+  background = 'cream',
+  animation = 'fade-up',
+  animationDelay
+} = Astro.props;
+
+const backgroundClass = `section--${background}`;
+---
+
+<section
+  id={id}
+  class:list={['section', backgroundClass, className]}
+  data-aos={animation}
+  data-aos-delay={animationDelay}
+>
+  <div class="container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--spacing-3xl);
+  }
+
+  /* Background variants */
+  .section--cream {
+    background-color: var(--color-cream);
+  }
+
+  .section--white {
+    background-color: var(--color-white);
+  }
+
+  .section--navy {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+  }
+
+  .section--navy :global(h1),
+  .section--navy :global(h2),
+  .section--navy :global(h3),
+  .section--navy :global(h4),
+  .section--navy :global(h5),
+  .section--navy :global(h6) {
+    color: var(--color-cream);
+  }
+
+  .section--navy :global(a) {
+    color: var(--color-gold);
+  }
+
+  .section--navy :global(a:hover),
+  .section--navy :global(a:focus) {
+    color: var(--color-cream);
+  }
+</style>

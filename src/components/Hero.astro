@@ -1,0 +1,176 @@
+---
+/**
+ * Hero - Homepage hero section with headline, subheadline, and CTAs
+ *
+ * Centered content layout with primary and optional secondary call-to-action.
+ * Uses serif font for headline, with fade-up scroll animation.
+ *
+ * @example
+ * <Hero
+ *   headline="Vertrauen von Anfang an"
+ *   subheadline="Ihre Immobilie in guten Handen"
+ *   introText="Mit Herz und Erfahrung begleite ich Sie..."
+ *   ctaText="Kontakt aufnehmen"
+ *   ctaHref="/kontakt"
+ *   secondaryCta={{ text: 'Uber mich', href: '/ueber-mich' }}
+ * />
+ */
+
+interface Props {
+  /** Main headline (h1) */
+  headline: string;
+  /** Subheadline below main headline */
+  subheadline?: string;
+  /** Introductory paragraph text */
+  introText?: string;
+  /** Primary CTA button text */
+  ctaText: string;
+  /** Primary CTA button link */
+  ctaHref: string;
+  /** Optional secondary CTA */
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const {
+  headline,
+  subheadline,
+  introText,
+  ctaText,
+  ctaHref,
+  secondaryCta
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__content" data-aos="fade-up">
+      <h1 class="hero__headline">{headline}</h1>
+
+      {subheadline && (
+        <p class="hero__subheadline">{subheadline}</p>
+      )}
+
+      {introText && (
+        <p class="hero__intro">{introText}</p>
+      )}
+
+      <div class="hero__actions" data-aos="fade-up" data-aos-delay="200">
+        <a href={ctaHref} class="hero__cta hero__cta--primary">
+          {ctaText}
+        </a>
+
+        {secondaryCta && (
+          <a href={secondaryCta.href} class="hero__cta hero__cta--secondary">
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: var(--spacing-3xl);
+    background-color: var(--color-cream);
+  }
+
+  .hero__content {
+    text-align: center;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .hero__headline {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-navy);
+  }
+
+  .hero__subheadline {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+  }
+
+  .hero__intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    min-width: 160px;
+  }
+
+  .hero__cta--primary {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    border: 2px solid var(--color-navy);
+  }
+
+  .hero__cta--primary:hover,
+  .hero__cta--primary:focus {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  .hero__cta--secondary {
+    background-color: transparent;
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+  }
+
+  .hero__cta--secondary:hover,
+  .hero__cta--secondary:focus {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero {
+      min-height: auto;
+      padding-block: var(--spacing-2xl);
+    }
+
+    .hero__actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero__cta {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

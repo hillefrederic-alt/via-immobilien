@@ -1,0 +1,95 @@
+---
+/**
+ * ServiceCard - Service listing card for Leistungen page
+ *
+ * Displays a service category with a title, optional icon, and list of
+ * service items. Card has white background with hover lift animation.
+ *
+ * @example
+ * <ServiceCard
+ *   title="Immobilienverkauf"
+ *   icon="key-icon"
+ *   items={['Marktanalyse', 'Wertermittlung', 'Verkaufsabwicklung']}
+ * />
+ */
+
+interface Props {
+  /** Service category title */
+  title: string;
+  /** List of service items */
+  items: string[];
+  /** Optional icon (emoji or text) */
+  icon?: string;
+}
+
+const { title, items, icon } = Astro.props;
+---
+
+<article class="service-card" data-aos="fade-up">
+  <h3 class="service-card__title">
+    {icon && <span class="service-card__icon">{icon}</span>}
+    {title}
+  </h3>
+
+  <ul class="service-card__list">
+    {items.map((item) => (
+      <li class="service-card__item">{item}</li>
+    ))}
+  </ul>
+</article>
+
+<style>
+  .service-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 2px 8px rgba(20, 35, 51, 0.08);
+    transition: all var(--transition-normal);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(20, 35, 51, 0.12);
+  }
+
+  .service-card__title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .service-card__icon {
+    font-size: var(--font-size-2xl);
+  }
+
+  .service-card__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .service-card__item {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-normal);
+  }
+
+  .service-card__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-card__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+</style>
