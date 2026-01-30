@@ -1,0 +1,147 @@
+---
+/**
+ * CookieBanner - GDPR-compliant cookie consent banner
+ *
+ * Uses vanilla-cookieconsent v3 for:
+ * - Cookie consent modal on first visit
+ * - Preferences modal for granular control
+ * - Persistent consent storage
+ *
+ * The banner automatically appears on first visit and stores consent
+ * in a cookie. Users can change preferences anytime via the
+ * "Cookie-Einstellungen" button in the footer or privacy policy.
+ *
+ * To open preferences modal from anywhere:
+ * <button data-cc="show-preferencesModal">Cookie-Einstellungen</button>
+ */
+---
+
+<!-- Cookie consent initialization -->
+<script>
+  import { initCookieConsent } from '../scripts/cookieconsent';
+
+  // Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initCookieConsent();
+  });
+</script>
+
+<!-- Custom styles to match Via Immobilien brand -->
+<style is:global>
+  /* Override vanilla-cookieconsent default colors with brand colors */
+  :root {
+    /* Primary colors */
+    --cc-bg: var(--color-cream, #F5F0EA);
+    --cc-text: var(--color-navy, #142333);
+    --cc-btn-primary-bg: var(--color-navy, #142333);
+    --cc-btn-primary-text: var(--color-cream, #F5F0EA);
+    --cc-btn-primary-hover-bg: #1a2d42;
+    --cc-btn-secondary-bg: transparent;
+    --cc-btn-secondary-text: var(--color-navy, #142333);
+    --cc-btn-secondary-hover-bg: rgba(20, 35, 51, 0.1);
+    --cc-btn-secondary-border-color: var(--color-navy, #142333);
+    --cc-toggle-bg-off: #d1d5db;
+    --cc-toggle-bg-on: var(--color-navy, #142333);
+    --cc-toggle-bg-readonly: #9ca3af;
+    --cc-toggle-knob-bg: #fff;
+    --cc-cookie-category-block-bg: rgba(20, 35, 51, 0.05);
+    --cc-cookie-category-block-bg-hover: rgba(20, 35, 51, 0.1);
+    --cc-separator-border-color: rgba(20, 35, 51, 0.15);
+    --cc-footer-bg: rgba(20, 35, 51, 0.05);
+    --cc-footer-text-color: var(--color-navy, #142333);
+    --cc-footer-link-color: var(--color-navy, #142333);
+    --cc-overlay-bg: rgba(20, 35, 51, 0.7);
+    --cc-webkit-scrollbar-bg: #e5e7eb;
+    --cc-webkit-scrollbar-bg-hover: #d1d5db;
+  }
+
+  /* Consent modal styling */
+  #cc-main .cm {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(20, 35, 51, 0.15);
+  }
+
+  #cc-main .cm__title {
+    font-family: var(--font-serif, 'Libre Baskerville', serif);
+    font-size: 1.5rem;
+  }
+
+  #cc-main .cm__desc {
+    line-height: 1.6;
+  }
+
+  /* Button styling - equal visual weight */
+  #cc-main .cm__btn {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  #cc-main .cm__btn--secondary {
+    border: 2px solid var(--cc-btn-secondary-border-color);
+  }
+
+  /* Footer links */
+  #cc-main .cm__footer a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold, #D1B787);
+    text-underline-offset: 2px;
+  }
+
+  #cc-main .cm__footer a:hover {
+    color: var(--color-gold, #D1B787);
+  }
+
+  /* Preferences modal styling */
+  #cc-main .pm {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    border-radius: 12px;
+  }
+
+  #cc-main .pm__title {
+    font-family: var(--font-serif, 'Libre Baskerville', serif);
+  }
+
+  #cc-main .pm__section-title {
+    font-weight: 600;
+    color: var(--color-navy, #142333);
+  }
+
+  /* Category blocks */
+  #cc-main .pm__section--toggle .pm__section-desc-wrapper {
+    border-radius: 8px;
+  }
+
+  /* Toggle switch */
+  #cc-main .pm__section--toggle .section__toggle {
+    border-radius: 20px;
+  }
+
+  /* Make sure close button is visible */
+  #cc-main .pm__close-btn {
+    color: var(--color-navy, #142333);
+  }
+
+  #cc-main .pm__close-btn:hover {
+    background-color: rgba(20, 35, 51, 0.1);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    #cc-main .cm {
+      margin: 1rem;
+      border-radius: 8px;
+    }
+
+    #cc-main .cm__title {
+      font-size: 1.25rem;
+    }
+
+    #cc-main .cm__btn {
+      padding: 0.625rem 1.25rem;
+    }
+  }
+</style>
