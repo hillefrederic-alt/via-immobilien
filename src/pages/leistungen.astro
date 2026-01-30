@@ -15,6 +15,9 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 
+// Import images
+import leistungenImage from '../assets/images/leistungen-placeholder.svg';
+
 // Immobilienverkauf services (7 items)
 const verkaufServices = [
   {
@@ -156,13 +159,27 @@ const vermietungServices = [
 
   <!-- Intro Section -->
   <Section background="navy" id="intro">
-    <div class="intro-content" data-aos="fade-up">
-      <p class="intro-text">
-        Ob Verkauf oder Vermietung - ich begleite Sie durch den gesamten Prozess.
-        Von der ersten Beratung bis zum erfolgreichen Abschluss. Hier finden Sie
-        einen Ueberblick ueber meine Leistungen. Alle Schritte sind inbegriffen,
-        keine versteckten Kosten.
-      </p>
+    <div class="intro-grid">
+      <div class="intro-grid__image" data-aos="fade-right">
+        <img
+          src={leistungenImage.src}
+          alt="Checkliste - Alle Leistungen inklusive"
+          width="500"
+          height="400"
+          class="intro-image"
+        />
+      </div>
+      <div class="intro-grid__content" data-aos="fade-left">
+        <h2 class="intro-title">Alles aus einer Hand</h2>
+        <p class="intro-text">
+          Ob Verkauf oder Vermietung - ich begleite Sie durch den gesamten Prozess.
+          Von der ersten Beratung bis zum erfolgreichen Abschluss.
+        </p>
+        <p class="intro-text">
+          Hier finden Sie einen Ueberblick ueber meine Leistungen.
+          <strong>Alle Schritte sind inbegriffen, keine versteckten Kosten.</strong>
+        </p>
+      </div>
     </div>
   </Section>
 
@@ -227,11 +244,46 @@ const vermietungServices = [
 </BaseLayout>
 
 <style>
-  /* Intro Content */
-  .intro-content {
-    max-width: 800px;
-    margin-inline: auto;
+  /* Intro Grid - Two Column Layout */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  .intro-grid__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .intro-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .intro-grid__content {
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro-grid__content {
+      text-align: left;
+    }
+  }
+
+  .intro-title {
+    font-size: var(--font-size-2xl);
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
   }
 
   .intro-text {
@@ -239,6 +291,11 @@ const vermietungServices = [
     color: var(--color-cream);
     line-height: var(--line-height-relaxed);
     opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .intro-text:last-child {
+    margin-bottom: 0;
   }
 
   /* Service Section */

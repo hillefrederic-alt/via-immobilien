@@ -15,8 +15,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 
-// Import portrait placeholder
+// Import images
 import portraitSvg from '../assets/images/denise-portrait.svg';
+import motivationImage from '../assets/images/motivation-placeholder.svg';
+import zielgruppeImage from '../assets/images/zielgruppe-placeholder.svg';
 ---
 
 <BaseLayout
@@ -66,9 +68,18 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
 
   <!-- Warum ich Maklerin bin -->
   <Section background="navy" id="motivation">
-    <div class="content-centered">
-      <h2 data-aos="fade-up">Warum ich Maklerin bin</h2>
-      <div class="text-content" data-aos="fade-up" data-aos-delay="100">
+    <div class="motivation-grid">
+      <div class="motivation-grid__image" data-aos="fade-right">
+        <img
+          src={motivationImage.src}
+          alt="Herz fuer Immobilien"
+          width="500"
+          height="400"
+          class="motivation-image"
+        />
+      </div>
+      <div class="motivation-grid__content" data-aos="fade-left">
+        <h2>Warum ich Maklerin bin</h2>
         <p class="highlight-text">
           Immobilien haben mich schon immer fasziniert - nicht nur als Gebaeude,
           sondern als Lebensraeume, die Geschichten erzaehlen.
@@ -76,13 +87,11 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
         <p>
           Mein Weg in die Immobilienbranche war keine Zufallsentscheidung. Nach
           Jahren in der Finanz- und Beratungsbranche habe ich erkannt: Ich moechte
-          Menschen in wichtigen Lebensmomenten begleiten. Der Kauf oder Verkauf
-          einer Immobilie ist genau so ein Moment.
+          Menschen in wichtigen Lebensmomenten begleiten.
         </p>
         <p>
-          Was mich antreibt? Die Freude in den Augen meiner Kunden, wenn alles
+          <strong>Was mich antreibt?</strong> Die Freude in den Augen meiner Kunden, wenn alles
           reibungslos geklappt hat. Das Vertrauen, das mir entgegengebracht wird.
-          Und das Wissen, dass ich mit meiner Arbeit einen echten Unterschied mache.
         </p>
       </div>
     </div>
@@ -129,7 +138,24 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
 
   <!-- Fur wen ich besonders gern arbeite -->
   <Section background="navy" id="zielgruppe">
-    <h2 class="section-title" data-aos="fade-up">Fur wen ich besonders gern arbeite</h2>
+    <div class="zielgruppe-intro">
+      <div class="zielgruppe-intro__image" data-aos="fade-right">
+        <img
+          src={zielgruppeImage.src}
+          alt="Menschen und Immobilien"
+          width="500"
+          height="400"
+          class="zielgruppe-image"
+        />
+      </div>
+      <div class="zielgruppe-intro__content" data-aos="fade-left">
+        <h2>Fur wen ich besonders gern arbeite</h2>
+        <p>
+          Ich arbeite am liebsten mit Menschen, die Wert auf ehrliche Beratung
+          und persoenliche Betreuung legen.
+        </p>
+      </div>
+    </div>
     <div class="audience-grid">
       <div class="audience-card" data-aos="fade-up" data-aos-delay="0">
         <h3>Eigentuemer mit Weitblick</h3>
@@ -227,47 +253,112 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
     line-height: var(--line-height-relaxed);
   }
 
-  /* Content Centered (Motivation section) */
-  .content-centered {
-    max-width: 800px;
-    margin-inline: auto;
+  /* Motivation Grid - Two Column Layout */
+  .motivation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .motivation-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  .motivation-grid__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .motivation-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .motivation-grid__content {
     text-align: center;
   }
 
-  .content-centered h2 {
-    margin-bottom: var(--spacing-xl);
+  @media (min-width: 768px) {
+    .motivation-grid__content {
+      text-align: left;
+    }
   }
 
-  .text-content {
-    text-align: left;
+  .motivation-grid__content h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .motivation-grid__content p {
+    font-size: var(--font-size-lg);
+    color: var(--color-cream);
+    line-height: var(--line-height-relaxed);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .motivation-grid__content p:last-child {
+    margin-bottom: 0;
   }
 
   .highlight-text {
     font-family: var(--font-serif);
     font-size: var(--font-size-xl);
-    color: var(--color-navy);
     font-style: italic;
+  }
+
+  /* Zielgruppe Intro Grid */
+  .zielgruppe-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  @media (min-width: 768px) {
+    .zielgruppe-intro {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  .zielgruppe-intro__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .zielgruppe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .zielgruppe-intro__content {
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .zielgruppe-intro__content {
+      text-align: left;
+    }
+  }
+
+  .zielgruppe-intro__content h2 {
+    color: var(--color-cream);
     margin-bottom: var(--spacing-lg);
-    line-height: var(--line-height-relaxed);
   }
 
-  .text-content p {
-    color: var(--color-text-muted);
-    line-height: var(--line-height-relaxed);
-  }
-
-  /* Navy background variants */
-  :global(.section--navy) .content-centered .highlight-text {
+  .zielgruppe-intro__content p {
+    font-size: var(--font-size-lg);
     color: var(--color-cream);
-  }
-
-  :global(.section--navy) .text-content p {
-    color: var(--color-cream);
+    line-height: var(--line-height-relaxed);
     opacity: 0.9;
-  }
-
-  :global(.section--navy) .section-title {
-    color: var(--color-cream);
   }
 
   /* Section Title */
