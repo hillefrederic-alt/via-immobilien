@@ -1,0 +1,273 @@
+---
+/**
+ * Kontakt - Contact page with phone, email, and form placeholder
+ *
+ * Primary conversion point for the website. Makes it easy and inviting
+ * to reach out. Form placeholder for future backend integration.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="Kontakt | Via Immobilien"
+  description="Kontaktieren Sie Denise Semmel von Via Immobilien - telefonisch, per E-Mail oder uber das Kontaktformular. Unverbindlich und personlich."
+>
+  <Hero
+    headline="Kontakt"
+    subheadline="Unkompliziert. Personlich. Unverbindlich."
+    ctaText="Jetzt anrufen"
+    ctaHref="tel:+4917633445373"
+  />
+
+  <Section background="white">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>So erreichen Sie mich</h2>
+
+        <div class="contact-method">
+          <div class="contact-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>Telefon</h3>
+            <a href="tel:+4917633445373" class="contact-link">+49 176 33445373</a>
+            <p class="contact-note">Am besten erreichbar Mo-Fr, 9-18 Uhr</p>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h3>E-Mail</h3>
+            <a href="mailto:denise@via-immobilien.de" class="contact-link">denise@via-immobilien.de</a>
+            <p class="contact-note">Antwort in der Regel innerhalb von 24 Stunden</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-area">
+        <h2>Nachricht senden</h2>
+        <div class="form-placeholder">
+          <p>Kontaktformular wird in Kurze verfugbar sein.</p>
+          <p>Bis dahin erreichen Sie mich gerne telefonisch oder per E-Mail.</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section background="cream">
+    <div class="what-to-expect">
+      <h2>Was Sie erwartet</h2>
+      <ul class="expect-list">
+        <li>
+          <span class="expect-icon" aria-hidden="true">&#10003;</span>
+          Ein unverbindliches Erstgesprach zum Kennenlernen
+        </li>
+        <li>
+          <span class="expect-icon" aria-hidden="true">&#10003;</span>
+          Ehrliche Einschatzung Ihrer Situation
+        </li>
+        <li>
+          <span class="expect-icon" aria-hidden="true">&#10003;</span>
+          Kein Druck, keine versteckten Kosten
+        </li>
+      </ul>
+    </div>
+  </Section>
+
+  <Section background="navy" class="cta-section">
+    <div class="cta-content">
+      <h2>Lieber direkt sprechen?</h2>
+      <p>Ein Telefonat sagt oft mehr als hundert E-Mails.</p>
+      <a href="tel:+4917633445373" class="cta-button">+49 176 33445373</a>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-2xl);
+    }
+  }
+
+  .contact-info h2,
+  .contact-form-area h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .contact-method {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .contact-method:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+    border-radius: var(--border-radius-full);
+  }
+
+  .contact-details h3 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact-link {
+    display: inline-block;
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact-link:hover,
+  .contact-link:focus {
+    color: var(--color-gold);
+  }
+
+  .contact-note {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .form-placeholder {
+    background-color: var(--color-cream);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .form-placeholder p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .form-placeholder p:last-child {
+    margin-bottom: 0;
+  }
+
+  .what-to-expect {
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .what-to-expect h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .expect-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .expect-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+  }
+
+  .expect-list li:last-child {
+    border-bottom: none;
+  }
+
+  .expect-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    font-size: var(--font-size-lg);
+  }
+
+  .cta-button:hover,
+  .cta-button:focus {
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+  }
+</style>
