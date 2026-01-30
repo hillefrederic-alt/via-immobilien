@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 4 of 4 (SEO & Performance)
-Plan: 1 of [TBD] in current phase
+Plan: 2 of [TBD] in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 04-01-PLAN.md (SEO Infrastructure)
+Last activity: 2026-01-30 — Completed 04-02-PLAN.md (SEO Metadata & Analytics)
 
-Progress: [███████████████░] 96% (Phases 1-3 complete, Phase 4 in progress)
+Progress: [███████████████░] 98% (Phases 1-3 complete, Phase 4 in progress)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: 3 min
 - Total execution time: 0.5 hours
 
@@ -30,10 +30,10 @@ Progress: [███████████████░] 96% (Phases 1-3 com
 | 01-foundation | 3 | 12 min | 4 min |
 | 02-content-pages | 3 | 9 min | 3 min |
 | 03-contact-interactivity | 2 | 4 min | 2 min |
-| 04-seo-performance | 1 | 2 min | 2 min |
+| 04-seo-performance | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (3 min), 02-05 (2 min), 03-01 (2 min), 03-03 (2 min), 04-01 (2 min)
+- Last 5 plans: 02-05 (2 min), 03-01 (2 min), 03-03 (2 min), 04-01 (2 min), 04-02 (3 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -72,14 +72,20 @@ Recent decisions affecting current work:
 - Default OG image /og-default.jpg with per-page override capability (Phase 4)
 - Open Graph locale set to de_DE for German language site (Phase 4)
 - Twitter card format: summary_large_image (Phase 4)
+- RealEstateAgent schema type for better Google rich results specificity (Phase 4)
+- Plausible Analytics for GDPR-compliant tracking without cookie consent (Phase 4)
+- Address fields in schema use PLACEHOLDER_ prefix for user configuration (Phase 4)
+- Homepage title prioritizes primary keyword 'Immobilienmaklerin Frankfurt Rhein-Main' (Phase 4)
+- All page descriptions include regional keywords for local SEO (Phase 4)
 
 ### Pending Todos
 
 - Fill in Impressum placeholders (address, supervisory authority)
 - Fill in Datenschutz controller address
 - Replace Web3Forms access key placeholder in ContactForm.astro
-- Fill in LocalBusiness schema placeholders (street, city, ZIP) in BaseLayout.astro
+- Fill in RealEstateAgent schema placeholders (PLACEHOLDER_STREET, PLACEHOLDER_CITY, PLACEHOLDER_ZIP) in BaseLayout.astro
 - Create default Open Graph image at public/og-default.jpg (1200x630px)
+- Register via-immobilien.de domain in Plausible Analytics account
 
 ### Blockers/Concerns
 
@@ -87,8 +93,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-30T16:40:53Z
-Stopped at: Completed 04-01-PLAN.md (SEO Infrastructure)
+Last session: 2026-01-30T16:46:35Z
+Stopped at: Completed 04-02-PLAN.md (SEO Metadata & Analytics)
 Resume file: None
 
 ## Phase 2 Progress
@@ -116,6 +122,7 @@ Resume file: None
 ## Phase 4 Progress
 
 - 04-01: SEO infrastructure (astro-seo, sitemap, robots.txt) - COMPLETE
+- 04-02: SEO metadata and analytics (schema.org, Plausible, meta tags) - COMPLETE
 
 ---
 *State initialized: 2026-01-30*
