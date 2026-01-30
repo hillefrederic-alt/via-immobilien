@@ -1,19 +1,17 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Via Immobilien</title>
-	</head>
-	<body>
-		<h1>Via Immobilien</h1>
-		<p>Website in Entwicklung</p>
-	</body>
-</html>
+<BaseLayout title="Via Immobilien - Ihre Immobilienmaklerin im Rhein-Main-Gebiet">
+  <section class="hero container">
+    <h1>Via Immobilien</h1>
+    <p>Seite im Aufbau</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: var(--spacing-3xl);
+    text-align: center;
+  }
+</style>
