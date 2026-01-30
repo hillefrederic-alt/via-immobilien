@@ -1,0 +1,138 @@
+---
+/**
+ * Navigation - Reusable navigation links for Header and Mobile menu
+ * Contains all navigation items for the site
+ */
+
+interface Props {
+  variant?: 'desktop' | 'mobile';
+  onLinkClick?: string; // JavaScript function name for mobile menu close
+}
+
+const { variant = 'desktop', onLinkClick } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Startseite' },
+  { href: '/ueber-mich', label: 'Uber mich' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/so-arbeite-ich', label: 'So arbeite ich' },
+  { href: '/faq', label: 'FAQ' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<ul class:list={['nav-list', `nav-list--${variant}`]}>
+  {navLinks.map((link) => (
+    <li class="nav-item">
+      <a
+        href={link.href}
+        class:list={['nav-link', { 'nav-link--active': currentPath === link.href }]}
+        aria-current={currentPath === link.href ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    </li>
+  ))}
+  <li class="nav-item nav-item--cta">
+    <a
+      href="/kontakt"
+      class:list={['nav-link', 'nav-cta', { 'nav-link--active': currentPath === '/kontakt' }]}
+      aria-current={currentPath === '/kontakt' ? 'page' : undefined}
+    >
+      Kontakt
+    </a>
+  </li>
+</ul>
+
+<style>
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .nav-list--mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-navy);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--color-gold);
+  }
+
+  .nav-link--active {
+    color: var(--color-gold);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /* CTA Button Style */
+  .nav-cta {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .nav-cta:hover,
+  .nav-cta:focus {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+  }
+
+  .nav-cta.nav-link--active {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+  }
+
+  /* Mobile variant styles */
+  .nav-list--mobile .nav-link {
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-md);
+    text-align: center;
+    color: var(--color-cream);
+    border-bottom: 1px solid rgba(245, 240, 234, 0.1);
+  }
+
+  .nav-list--mobile .nav-link:hover,
+  .nav-list--mobile .nav-link:focus {
+    color: var(--color-gold);
+    background-color: rgba(245, 240, 234, 0.05);
+  }
+
+  .nav-list--mobile .nav-cta {
+    margin-top: var(--spacing-md);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border-bottom: none;
+    border-radius: var(--border-radius-md);
+  }
+
+  .nav-list--mobile .nav-cta:hover,
+  .nav-list--mobile .nav-cta:focus {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+  }
+</style>
