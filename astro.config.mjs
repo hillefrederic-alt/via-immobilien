@@ -5,7 +5,7 @@ import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://via-immobilien.de',
+  site: 'https://via-immobilien.com',
   integrations: [
     sitemap({
       filter: (page) =>
