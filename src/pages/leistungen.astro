@@ -262,11 +262,11 @@ const vermietungServices = [
     margin-inline: auto;
   }
 
-  /* Service Grid */
+  /* Service Grid - Simplified responsive grid */
   .service-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   @media (min-width: 640px) {
@@ -279,53 +279,12 @@ const vermietungServices = [
     .service-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-
-    /* Special grid for 7 items: 4-3 layout on large screens */
-    .service-grid--7 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .service-grid--7 > :nth-child(n+5) {
-      grid-column: span 1;
-    }
-
-    /* Center the last row of 3 items */
-    .service-grid--7 > :nth-child(5) {
-      grid-column: 1 / 2;
-    }
   }
 
-  @media (min-width: 1200px) {
-    /* Refined 7-item grid: first row 4, second row 3 centered */
-    .service-grid--7 {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--spacing-xl);
-    }
-
-    .service-grid--7 > :nth-child(1),
-    .service-grid--7 > :nth-child(2),
-    .service-grid--7 > :nth-child(3),
-    .service-grid--7 > :nth-child(4) {
-      grid-column: span 3;
-    }
-
-    .service-grid--7 > :nth-child(5) {
-      grid-column: 1 / 5;
-    }
-
-    .service-grid--7 > :nth-child(6) {
-      grid-column: 5 / 9;
-    }
-
-    .service-grid--7 > :nth-child(7) {
-      grid-column: 9 / 13;
-    }
-
-    /* 6-item grid: 3-3 layout */
-    .service-grid--6 {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  /* 7-item and 6-item grids use same responsive behavior */
+  .service-grid--7,
+  .service-grid--6 {
+    /* No special treatment needed - flexbox-like wrapping */
   }
 
   /* CTA Section */

@@ -75,12 +75,12 @@ const backgroundClass = `section--${background}`;
     color: var(--color-cream);
   }
 
-  .section--navy :global(a) {
+  .section--navy :global(a:not(.cta-button):not(.cta-section__button):not([class*="cta"])) {
     color: var(--color-gold);
   }
 
-  .section--navy :global(a:hover),
-  .section--navy :global(a:focus) {
+  .section--navy :global(a:not(.cta-button):not(.cta-section__button):not([class*="cta"]):hover),
+  .section--navy :global(a:not(.cta-button):not(.cta-section__button):not([class*="cta"]):focus) {
     color: var(--color-cream);
   }
 </style>
