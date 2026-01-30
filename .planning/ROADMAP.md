@@ -86,10 +86,13 @@ Plans:
   6. E-Mail address (denise@via-immobilien.de) is clickable and opens default email client
   7. Map displays Rhein-Main region either with two-click consent (Google Maps) or directly (OpenStreetMap)
 
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: TBD during planning
+- [ ] 03-01-PLAN.md — Contact form component with validation and Web3Forms
+- [ ] 03-02-PLAN.md — OpenStreetMap component with Leaflet.js
+- [ ] 03-03-PLAN.md — Integrate form/map into kontakt.astro + create danke.astro
+- [ ] 03-04-PLAN.md — Visual verification checkpoint
 
 ### Phase 4: SEO & Performance
 **Goal**: Optimize for local search, measure traffic, and achieve Lighthouse 90+ scores
@@ -120,7 +123,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Legal Compliance | 3/3 | Complete ✓ | 2026-01-30 |
 | 2. Core Content Pages | 6/6 | Complete ✓ | 2026-01-30 |
-| 3. Contact & Interactivity | 0/0 | Not started | - |
+| 3. Contact & Interactivity | 0/4 | Planned | - |
 | 4. SEO & Performance | 0/0 | Not started | - |
 
 ---
