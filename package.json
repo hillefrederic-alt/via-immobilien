@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "accessible-astro-components": "^5.1.2",
+    "aos": "^2.3.4",
     "astro": "^5.17.1",
     "vanilla-cookieconsent": "^3.1.0"
   }
