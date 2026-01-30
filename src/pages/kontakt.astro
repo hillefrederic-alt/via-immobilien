@@ -92,7 +92,7 @@ import ContactMap from '../components/ContactMap.astro';
     </div>
   </Section>
 
-  <Section background="navy" class="cta-section">
+  <Section background="sand" class="cta-section">
     <div class="cta-content">
       <h2>Lieber direkt sprechen?</h2>
       <p>Ein Telefonat sagt oft mehr als hundert E-Mails.</p>
@@ -269,20 +269,21 @@ import ContactMap from '../components/ContactMap.astro';
   .cta-content h2 {
     font-family: var(--font-serif);
     font-size: var(--font-size-2xl);
+    color: var(--color-navy);
     margin-bottom: var(--spacing-md);
   }
 
   .cta-content p {
     font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
     margin-bottom: var(--spacing-xl);
-    opacity: 0.9;
   }
 
   .cta-button {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
-    background-color: var(--color-gold);
-    color: var(--color-navy);
+    background-color: var(--color-navy);
+    color: var(--color-cream);
     font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border-radius: var(--border-radius-md);
@@ -292,7 +293,8 @@ import ContactMap from '../components/ContactMap.astro';
 
   .cta-button:hover,
   .cta-button:focus {
-    background-color: var(--color-cream);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
     transform: translateY(-2px);
   }
 </style>

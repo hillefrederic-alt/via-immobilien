@@ -91,6 +91,7 @@ h6 {
   --color-navy: #142333;
   --color-cream: #F5F0EA;
   --color-gold: #D1B787;
+  --color-sand: #E0D5C7; /* Darker beige for CTA sections */
 
   /* Semantic Color Aliases */
   --color-primary: var(--color-navy);

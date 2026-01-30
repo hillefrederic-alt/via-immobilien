@@ -18,7 +18,7 @@ interface Props {
   /** Additional CSS classes */
   class?: string;
   /** Background color variant */
-  background?: 'cream' | 'white' | 'navy';
+  background?: 'cream' | 'white' | 'navy' | 'sand';
   /** AOS animation type (default: fade-up) */
   animation?: string;
   /** AOS animation delay in ms */
@@ -64,6 +64,10 @@ const backgroundClass = `section--${background}`;
   .section--navy {
     background-color: var(--color-navy);
     color: var(--color-cream);
+  }
+
+  .section--sand {
+    background-color: var(--color-sand);
   }
 
   .section--navy :global(h1),
