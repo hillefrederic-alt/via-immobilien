@@ -16,6 +16,9 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
 
+// Import images
+import begleitungImage from '../assets/images/begleitung-placeholder.svg';
+
 // Testimonial data
 const testimonials = [
   {
@@ -72,9 +75,18 @@ const targetGroups = [
 
   <!-- Section: Gut begleitet statt allein gelassen -->
   <Section background="navy" id="begleitung">
-    <div class="intro-section" data-aos="fade-up">
-      <h2 class="intro-section__title">Gut begleitet statt allein gelassen</h2>
-      <div class="intro-section__content">
+    <div class="intro-grid">
+      <div class="intro-grid__image" data-aos="fade-right">
+        <img
+          src={begleitungImage.src}
+          alt="Immobilienbegleitung - Haus mit Partnerschaft Symbol"
+          width="500"
+          height="400"
+          class="intro-image"
+        />
+      </div>
+      <div class="intro-grid__content" data-aos="fade-left">
+        <h2 class="intro-section__title">Gut begleitet statt allein gelassen</h2>
         <p>
           Der Verkauf oder die Vermietung einer Immobilie ist mehr als nur eine Transaktion.
           Es ist oft ein emotionaler Prozess, der mit vielen Fragen verbunden ist.
@@ -84,7 +96,7 @@ const targetGroups = [
           Bei mir sind Sie keine Nummer in einer Kartei, sondern ein Mensch mit individuellen
           Bedurfnissen und Wunschen.
         </p>
-        <p>
+        <p class="intro-promise">
           <strong>Mein Versprechen:</strong> Ehrliche Beratung, transparente Prozesse und eine
           Begleitung, auf die Sie sich verlassen konnen - von der ersten Anfrage bis zum Notartermin.
         </p>
@@ -169,24 +181,49 @@ const targetGroups = [
 </BaseLayout>
 
 <style>
-  /* Intro Section (Gut begleitet) */
-  .intro-section {
-    max-width: 800px;
-    margin-inline: auto;
+  /* Intro Section (Gut begleitet) - Two Column Layout */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  .intro-grid__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .intro-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .intro-grid__content {
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro-grid__content {
+      text-align: left;
+    }
   }
 
   .intro-section__title {
     font-size: var(--font-size-2xl);
     color: var(--color-cream);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
   }
 
-  .intro-section__content {
-    text-align: left;
-  }
-
-  .intro-section__content p {
+  .intro-grid__content p {
     font-size: var(--font-size-lg);
     color: var(--color-cream);
     opacity: 0.9;
@@ -194,8 +231,13 @@ const targetGroups = [
     margin-bottom: var(--spacing-md);
   }
 
-  .intro-section__content p:last-child {
+  .intro-grid__content p:last-child {
     margin-bottom: 0;
+  }
+
+  .intro-promise {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(245, 240, 234, 0.2);
   }
 
   /* Benefits Section */
