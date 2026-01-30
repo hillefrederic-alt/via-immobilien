@@ -1,0 +1,210 @@
+---
+/**
+ * FAQ - Frequently asked questions about property sales
+ *
+ * Addresses common concerns and builds trust through transparent answers.
+ * Uses accessible Accordion component for expandable Q&A format.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import { Accordion, AccordionItem } from 'accessible-astro-components';
+---
+
+<BaseLayout
+  title="Haufige Fragen | Via Immobilien"
+  description="Antworten auf haufige Fragen zum Immobilienverkauf: Renovierung, Preisfindung, Kosten und Verkaufsdauer."
+>
+  <Hero
+    headline="Haufige Fragen"
+    subheadline="Verstehen. Einordnen. Vertrauen."
+    ctaText="Kontakt aufnehmen"
+    ctaHref="/kontakt"
+  />
+
+  <Section background="white">
+    <div class="intro">
+      <p>
+        Ein Immobilienverkauf wirft viele Fragen auf. Hier finden Sie Antworten auf die
+        haufigsten Themen. Fur alles Weitere stehe ich Ihnen personlich zur Verfugung.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="cream">
+    <div class="faq-container">
+      <Accordion>
+        <AccordionItem title="Muss ich meine Immobilie vor dem Verkauf renovieren?">
+          <p>
+            Nicht unbedingt. Ob sich eine Renovierung lohnt, hangt von vielen Faktoren ab:
+            dem Zustand der Immobilie, der Zielgruppe und dem lokalen Markt. Manchmal
+            genugen kleine Schonheitsreparaturen, manchmal ist der Verkauf "wie besehen"
+            die bessere Wahl.
+          </p>
+          <p>
+            In unserem Erstgesprach schauen wir uns Ihre Immobilie gemeinsam an und ich
+            gebe Ihnen eine ehrliche Einschatzung, was sinnvoll ist - ohne Ihnen
+            unnotige Kosten aufzuburden.
+          </p>
+        </AccordionItem>
+
+        <AccordionItem title="Wie wird der Verkaufspreis festgelegt?">
+          <p>
+            Der Verkaufspreis basiert auf einer sorgfaltigen Marktanalyse. Ich betrachte
+            vergleichbare Verkaufe in Ihrer Region, den Zustand und die Ausstattung
+            Ihrer Immobilie sowie die aktuelle Marktsituation.
+          </p>
+          <p>
+            Wichtig ist mir dabei, realistisch zu bleiben. Ein zu hoher Preis fuhrt oft
+            zu langen Standzeiten und letztlich zu einem niedrigeren Verkaufserlos.
+            Ich berate Sie ehrlich - auch wenn das bedeutet, dass ich Ihnen einen
+            niedrigeren Preis empfehle als erhofft.
+          </p>
+        </AccordionItem>
+
+        <AccordionItem title="Was kostet mich die Zusammenarbeit mit Ihnen?">
+          <p>
+            Mein Honorar betragt in der Regel 3,57% des Kaufpreises (inkl. MwSt.) und
+            wird nur im Erfolgsfall fallig - also erst, wenn Ihre Immobilie tatsachlich
+            verkauft wurde. Vorabkosten entstehen Ihnen nicht.
+          </p>
+          <p>
+            Die genauen Konditionen besprechen wir transparent im Erstgesprach. Es gibt
+            keine versteckten Kosten oder uberraschende Zusatzgebuhren.
+          </p>
+        </AccordionItem>
+
+        <AccordionItem title="Wie lange dauert der Verkauf einer Immobilie?">
+          <p>
+            Das hangt von verschiedenen Faktoren ab: Lage, Zustand, Preisgestaltung und
+            aktuelle Marktlage. Im Durchschnitt rechne ich mit 3 bis 6 Monaten vom
+            ersten Gesprach bis zum Notartermin.
+          </p>
+          <p>
+            Manchmal geht es schneller, manchmal braucht es mehr Geduld. Ich halte Sie
+            in jedem Fall auf dem Laufenden und bespreche mit Ihnen, wenn Anpassungen
+            sinnvoll sein konnten.
+          </p>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  </Section>
+
+  <Section background="navy" class="cta-section">
+    <div class="cta-content">
+      <h2>Noch Fragen?</h2>
+      <p>Ich beantworte sie gerne personlich - unverbindlich und ehrlich.</p>
+      <a href="/kontakt" class="cta-button">Kontakt aufnehmen</a>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .intro {
+    max-width: 70ch;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .intro p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  /* Accordion styling to match site design */
+  .faq-container :global(.accordion) {
+    border: none;
+  }
+
+  .faq-container :global(.item) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .faq-container :global(.wrapper) {
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .faq-container :global(.title) {
+    padding: var(--spacing-lg);
+    background-color: var(--color-white);
+  }
+
+  .faq-container :global(.title:hover),
+  .faq-container :global(.title:focus-visible) {
+    color: var(--color-navy);
+    text-decoration-color: var(--color-gold);
+  }
+
+  .faq-container :global(.heading) {
+    color: var(--color-navy);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg) !important;
+  }
+
+  .faq-container :global(.icon-plus) {
+    color: var(--color-gold);
+  }
+
+  .faq-container :global(.content) {
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    padding-left: calc(var(--spacing-lg) + 2.2rem);
+  }
+
+  .faq-container :global(.content p) {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .faq-container :global(.content p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+  }
+
+  .cta-button:hover,
+  .cta-button:focus {
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+  }
+</style>
