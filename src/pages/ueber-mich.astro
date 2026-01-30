@@ -1,0 +1,419 @@
+---
+/**
+ * Uber mich (About) Page
+ *
+ * Personal introduction to Denise Semmel with:
+ * - Hero section with tagline
+ * - Photo + intro two-column layout
+ * - "Warum ich Maklerin bin" motivation section
+ * - "Wie ich arbeite" work style section
+ * - "Fur wen ich besonders gern arbeite" target audience
+ * - CTA section
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+
+// Import portrait placeholder
+import portraitSvg from '../assets/images/denise-portrait.svg';
+---
+
+<BaseLayout
+  title="Uber mich - Via Immobilien | Denise Semmel"
+  description="Lernen Sie mich kennen: Denise Semmel, Ihre persoenliche Immobilienmaklerin in der Rhein-Main-Region. Bodenstaendig, verlaesslich und mit Herz bei der Sache."
+>
+  <!-- Hero Section -->
+  <Hero
+    headline="Uber mich"
+    subheadline="Persoenlich. Bodenstaendig. Verlaesslich."
+    ctaText="Kontakt aufnehmen"
+    ctaHref="/kontakt"
+  />
+
+  <!-- Photo + Intro Section (Two-column) -->
+  <Section background="white" id="portrait">
+    <div class="intro-grid">
+      <div class="intro-grid__image" data-aos="fade-right">
+        <img
+          src={portraitSvg.src}
+          alt="Denise Semmel - Ihre Immobilienmaklerin"
+          class="portrait"
+          width="400"
+          height="500"
+        />
+      </div>
+      <div class="intro-grid__content" data-aos="fade-left" data-aos-delay="100">
+        <h2>Hallo, ich bin Denise</h2>
+        <p class="intro-lead">
+          Schoen, dass Sie hier sind. Ich bin Denise Semmel, Ihre Immobilienmaklerin
+          in der Rhein-Main-Region. Bei mir stehen Sie als Mensch im Mittelpunkt
+          - nicht die Immobilie.
+        </p>
+        <p>
+          Mit uber 10 Jahren Erfahrung in der Immobilienbranche habe ich gelernt,
+          dass der Verkauf oder die Vermietung einer Immobilie immer auch eine
+          persoenliche Angelegenheit ist. Es geht um Lebensveraenderungen, um
+          Erinnerungen, um Zukunftsplaene.
+        </p>
+        <p>
+          Deshalb nehme ich mir Zeit fur Sie. Ich hoere zu, berate ehrlich und
+          begleite Sie Schritt fur Schritt - transparent und verlaesslich.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Warum ich Maklerin bin -->
+  <Section background="cream" id="motivation">
+    <div class="content-centered">
+      <h2 data-aos="fade-up">Warum ich Maklerin bin</h2>
+      <div class="text-content" data-aos="fade-up" data-aos-delay="100">
+        <p class="highlight-text">
+          Immobilien haben mich schon immer fasziniert - nicht nur als Gebaeude,
+          sondern als Lebensraeume, die Geschichten erzaehlen.
+        </p>
+        <p>
+          Mein Weg in die Immobilienbranche war keine Zufallsentscheidung. Nach
+          Jahren in der Finanz- und Beratungsbranche habe ich erkannt: Ich moechte
+          Menschen in wichtigen Lebensmomenten begleiten. Der Kauf oder Verkauf
+          einer Immobilie ist genau so ein Moment.
+        </p>
+        <p>
+          Was mich antreibt? Die Freude in den Augen meiner Kunden, wenn alles
+          reibungslos geklappt hat. Das Vertrauen, das mir entgegengebracht wird.
+          Und das Wissen, dass ich mit meiner Arbeit einen echten Unterschied mache.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Wie ich arbeite -->
+  <Section background="white" id="arbeitsweise">
+    <h2 class="section-title" data-aos="fade-up">Wie ich arbeite</h2>
+    <div class="points-grid">
+      <div class="point-card" data-aos="fade-up" data-aos-delay="0">
+        <span class="point-number">01</span>
+        <h3>Persoenlich statt anonym</h3>
+        <p>
+          Bei mir gibt es keinen Callcenter-Service. Sie erreichen mich direkt
+          - und ich nehme mir Zeit fur Ihre Anliegen.
+        </p>
+      </div>
+      <div class="point-card" data-aos="fade-up" data-aos-delay="100">
+        <span class="point-number">02</span>
+        <h3>Ehrlich statt beschoenigend</h3>
+        <p>
+          Ich sage Ihnen, was Ihre Immobilie wert ist - nicht, was Sie hoeren moechten.
+          Ehrlichkeit schafft Vertrauen und fuehrt zu besseren Ergebnissen.
+        </p>
+      </div>
+      <div class="point-card" data-aos="fade-up" data-aos-delay="200">
+        <span class="point-number">03</span>
+        <h3>Strukturiert statt chaotisch</h3>
+        <p>
+          Klare Prozesse, regelmaessige Updates und transparente Kommunikation.
+          Sie wissen immer, wo wir stehen.
+        </p>
+      </div>
+      <div class="point-card" data-aos="fade-up" data-aos-delay="300">
+        <span class="point-number">04</span>
+        <h3>Engagiert statt gleichgueltig</h3>
+        <p>
+          Ihre Immobilie ist fur mich nicht nur ein Objekt. Ich setze mich mit
+          voller Energie fur den besten Abschluss ein.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Fur wen ich besonders gern arbeite -->
+  <Section background="cream" id="zielgruppe">
+    <h2 class="section-title" data-aos="fade-up">Fur wen ich besonders gern arbeite</h2>
+    <div class="audience-grid">
+      <div class="audience-card" data-aos="fade-up" data-aos-delay="0">
+        <h3>Eigentuemer mit Weitblick</h3>
+        <p>
+          Sie moechten Ihre Immobilie verkaufen und legen Wert auf eine
+          professionelle, stressfreie Abwicklung? Dann sind wir ein gutes Team.
+        </p>
+      </div>
+      <div class="audience-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Familien im Wandel</h3>
+        <p>
+          Ob Nachwuchs, Auszug der Kinder oder Trennung - Lebensveraenderungen
+          bedeuten oft auch Wohnveraenderungen. Ich begleite Sie sensibel durch
+          diese Zeit.
+        </p>
+      </div>
+      <div class="audience-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Erben mit Verantwortung</h3>
+        <p>
+          Eine geerbte Immobilie bringt Fragen und manchmal auch Konflikte mit sich.
+          Ich helfe Ihnen, den richtigen Weg zu finden - sachlich und respektvoll.
+        </p>
+      </div>
+      <div class="audience-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Vermieter mit Anspruch</h3>
+        <p>
+          Sie suchen solvente, zuverlaessige Mieter? Mit meiner sorgfaeltigen
+          Auswahl und Pruefung finden wir die passenden Menschen fur Ihre Immobilie.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <Section background="navy" id="cta">
+    <div class="cta-content" data-aos="fade-up">
+      <h2>Lernen wir uns kennen</h2>
+      <p class="cta-text">
+        Haben Sie Fragen oder moechten Sie Ihre Situation besprechen?
+        Ich freue mich auf ein unverbindliches Gespraech mit Ihnen.
+      </p>
+      <div class="cta-actions">
+        <a href="/kontakt" class="cta-button cta-button--primary">
+          Kontakt aufnehmen
+        </a>
+        <a href="/leistungen" class="cta-button cta-button--secondary">
+          Meine Leistungen
+        </a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  /* Intro Grid (Two-column photo + text) */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  .intro-grid__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .portrait {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 32px rgba(20, 35, 51, 0.1);
+  }
+
+  .intro-grid__content h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .intro-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .intro-grid__content p {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Content Centered (Motivation section) */
+  .content-centered {
+    max-width: 800px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .content-centered h2 {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .text-content {
+    text-align: left;
+  }
+
+  .highlight-text {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .text-content p {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Section Title */
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  /* Points Grid (Wie ich arbeite) */
+  .points-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 640px) {
+    .points-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .points-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .point-card {
+    background-color: var(--color-cream);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+  }
+
+  .point-number {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-3xl);
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .point-card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-navy);
+  }
+
+  .point-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Audience Grid (Fur wen ich arbeite) */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 640px) {
+    .audience-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .audience-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--color-gold);
+    box-shadow: 0 2px 8px rgba(20, 35, 51, 0.06);
+  }
+
+  .audience-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-navy);
+  }
+
+  .audience-card p {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+  }
+
+  /* CTA Section */
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .cta-content h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-cream);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    min-width: 180px;
+  }
+
+  .cta-button--primary {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border: 2px solid var(--color-gold);
+  }
+
+  .cta-button--primary:hover,
+  .cta-button--primary:focus {
+    background-color: var(--color-cream);
+    border-color: var(--color-cream);
+  }
+
+  .cta-button--secondary {
+    background-color: transparent;
+    color: var(--color-cream);
+    border: 2px solid var(--color-cream);
+  }
+
+  .cta-button--secondary:hover,
+  .cta-button--secondary:focus {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 640px) {
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>
