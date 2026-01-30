@@ -1,0 +1,195 @@
+---
+/**
+ * Impressum - Legal information page required by German law (§5 TMG)
+ *
+ * Contains:
+ * - Company and contact information
+ * - Real estate agent licensing (§34c GewO) - CRITICAL for real estate agents
+ * - EU Online Dispute Resolution link
+ * - Liability disclaimers
+ *
+ * IMPORTANT: Placeholders marked with [PLACEHOLDER] must be filled in with actual data
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Impressum | Via Immobilien" description="Impressum und rechtliche Angaben von Via Immobilien - Denise Semmel">
+  <section class="legal-page">
+    <div class="container">
+      <h1>Impressum</h1>
+
+      <section class="legal-section">
+        <h2>Angaben gemaB § 5 TMG</h2>
+
+        <address class="contact-info">
+          <p><strong>Via Immobilien</strong></p>
+          <p>Denise Semmel</p>
+          <!-- PLACEHOLDER: Address must be filled in with actual business address -->
+          <p>[PLACEHOLDER - Strasse und Hausnummer]</p>
+          <p>[PLACEHOLDER - PLZ und Ort]</p>
+        </address>
+      </section>
+
+      <section class="legal-section">
+        <h2>Kontakt</h2>
+        <p>Telefon: <a href="tel:+4917633445373">+49 176 33445373</a></p>
+        <p>E-Mail: <a href="mailto:denise@via-immobilien.de">denise@via-immobilien.de</a></p>
+        <p>Website: <a href="https://www.via-immobilien.de" target="_blank" rel="noopener">www.via-immobilien.de</a></p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Berufsrechtliche Angaben</h2>
+        <p>Erlaubnis nach § 34c Gewerbeordnung (GewO)</p>
+        <p>Tatigkeiten: Immobilienmakler</p>
+        <!-- PLACEHOLDER: Supervisory authority must be filled in with the correct local authority -->
+        <p>
+          <strong>Aufsichtsbehorde:</strong><br>
+          [PLACEHOLDER - Zustandiges Ordnungsamt/Gewerbeamt eintragen]<br>
+          [PLACEHOLDER - Adresse der Aufsichtsbehorde]
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>EU-Streitschlichtung</h2>
+        <p>
+          Die Europaische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
+            https://ec.europa.eu/consumers/odr
+          </a>
+        </p>
+        <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Haftung fur Inhalte</h2>
+        <p>
+          Als Diensteanbieter sind wir gemaB § 7 Abs.1 TMG fur eigene Inhalte auf diesen Seiten
+          nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+          Diensteanbieter jedoch nicht verpflichtet, ubermittelte oder gespeicherte fremde
+          Informationen zu uberwachen oder nach Umstanden zu forschen, die auf eine rechtswidrige
+          Tatigkeit hinweisen.
+        </p>
+        <p>
+          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
+          allgemeinen Gesetzen bleiben hiervon unberuhrt. Eine diesbezugliche Haftung ist jedoch
+          erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung moglich. Bei
+          Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte
+          umgehend entfernen.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Haftung fur Links</h2>
+        <p>
+          Unser Angebot enthalt Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+          Einfluss haben. Deshalb konnen wir fur diese fremden Inhalte auch keine Gewahr ubernehmen.
+          Fur die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+          der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung
+          auf mogliche RechtsverstoBe uberpruft. Rechtswidrige Inhalte waren zum Zeitpunkt der
+          Verlinkung nicht erkennbar.
+        </p>
+        <p>
+          Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
+          Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+          Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Urheberrecht</h2>
+        <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+          dem deutschen Urheberrecht. Die Vervielfaltigung, Bearbeitung, Verbreitung und jede Art
+          der Verwertung auBerhalb der Grenzen des Urheberrechtes bedurfen der schriftlichen
+          Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite
+          sind nur fur den privaten, nicht kommerziellen Gebrauch gestattet.
+        </p>
+        <p>
+          Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die
+          Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche
+          gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
+          bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen
+          werden wir derartige Inhalte umgehend entfernen.
+        </p>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-block: var(--spacing-3xl);
+  }
+
+  .legal-page h1 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-3xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .legal-section {
+    margin-bottom: var(--spacing-2xl);
+    max-width: 70ch;
+  }
+
+  .legal-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-section h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-gold);
+  }
+
+  .legal-section p {
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .legal-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-info {
+    font-style: normal;
+  }
+
+  .contact-info p {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .legal-section a {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast);
+  }
+
+  .legal-section a:hover,
+  .legal-section a:focus {
+    color: var(--color-gold);
+  }
+
+  /* Highlight placeholders that need to be filled in */
+  .legal-section p:has([PLACEHOLDER]),
+  .contact-info p:nth-child(n+3):nth-child(-n+4) {
+    background-color: rgba(255, 200, 100, 0.2);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+  }
+</style>
