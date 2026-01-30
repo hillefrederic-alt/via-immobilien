@@ -13,7 +13,7 @@ Delivering a professional, GDPR-compliant business card website for Via Immobili
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Legal Compliance** - Project setup, legal pages, design system ✓
-- [ ] **Phase 2: Core Content Pages** - All 6 main pages with trust elements
+- [x] **Phase 2: Core Content Pages** - All 6 main pages with trust elements ✓
 - [ ] **Phase 3: Contact & Interactivity** - Contact form, maps, click-to-call
 - [ ] **Phase 4: SEO & Performance** - Optimization, analytics, local search
 
@@ -60,10 +60,15 @@ Plans:
   8. Social media links (Instagram) appear in footer and are clickable
   9. Scroll animations reveal elements as user scrolls down pages
 
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 02-01: TBD during planning
+- [x] 02-01-PLAN.md - Foundation: AOS setup and reusable UI components ✓
+- [x] 02-02-PLAN.md - Homepage with Hero, value sections, testimonials ✓
+- [x] 02-03-PLAN.md - Ueber mich and Leistungen pages ✓
+- [x] 02-04-PLAN.md - So arbeite ich, FAQ, and Kontakt pages ✓
+- [x] 02-05-PLAN.md - Footer social media links (Instagram) ✓
+- [x] 02-06-PLAN.md - Visual verification checkpoint ✓
 
 ### Phase 3: Contact & Interactivity
 **Goal**: Enable contact via form, phone, and email with GDPR-compliant map integration
@@ -114,7 +119,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Legal Compliance | 3/3 | Complete ✓ | 2026-01-30 |
-| 2. Core Content Pages | 0/0 | Not started | - |
+| 2. Core Content Pages | 6/6 | Complete ✓ | 2026-01-30 |
 | 3. Contact & Interactivity | 0/0 | Not started | - |
 | 4. SEO & Performance | 0/0 | Not started | - |
 
