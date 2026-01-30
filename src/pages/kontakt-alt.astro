@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ContactMap from '../components/ContactMap.astro';
+---
+
+<BaseLayout
+  title="Kontakt - Via Immobilien"
+  description="Kontaktieren Sie Via Immobilien für eine unverbindliche Beratung. Telefon, E-Mail oder Kontaktformular."
+>
+  <main class="contact-split">
+    <!-- Left: Form -->
+    <div class="contact-form-side">
+      <div class="form-container">
+        <h1>Kontakt</h1>
+        <p class="intro">Unkompliziert. Persönlich. Unverbindlich.</p>
+
+        <ContactForm />
+
+        <div class="direct-contact">
+          <p>Oder direkt erreichen:</p>
+          <div class="contact-links">
+            <a href="tel:+4917633445373" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              +49 176 33445373
+            </a>
+            <a href="mailto:denise@via-immobilien.de" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              denise@via-immobilien.de
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Map + Info -->
+    <div class="contact-map-side">
+      <div class="map-container">
+        <ContactMap />
+      </div>
+      <div class="map-overlay">
+        <div class="overlay-content">
+          <h2>Rhein-Main-Region</h2>
+          <p>Ihr Partner für Immobilien in Frankfurt und Umgebung</p>
+          <ul class="expectations">
+            <li>Unverbindliches Erstgespräch ohne Druck</li>
+            <li>Ehrliche Antworten auf Ihre Fragen</li>
+            <li>Konkrete nächste Schritte, wenn Sie möchten</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - var(--header-height, 80px));
+  }
+
+  /* Left side - Form */
+  .contact-form-side {
+    background-color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl);
+  }
+
+  .form-container {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .form-container h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .form-container .intro {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .direct-contact {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(20, 35, 51, 0.1);
+  }
+
+  .direct-contact p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-navy);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+  }
+
+  .contact-link:hover {
+    color: var(--color-gold);
+  }
+
+  .contact-link svg {
+    flex-shrink: 0;
+  }
+
+  /* Right side - Map */
+  .contact-map-side {
+    position: relative;
+    background-color: var(--color-navy);
+  }
+
+  .map-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .map-container :global(.contact-map) {
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .map-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(20, 35, 51, 0.95) 0%, rgba(20, 35, 51, 0.8) 60%, transparent 100%);
+    padding: var(--spacing-2xl);
+    padding-top: var(--spacing-3xl);
+  }
+
+  .overlay-content {
+    max-width: 400px;
+  }
+
+  .overlay-content h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .overlay-content > p {
+    color: var(--color-gold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .expectations {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .expectations li {
+    color: var(--color-cream);
+    padding-left: var(--spacing-lg);
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  .expectations li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+  }
+
+  /* Mobile: Stack vertically */
+  @media (max-width: 968px) {
+    .contact-split {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .contact-form-side {
+      padding: var(--spacing-xl);
+      order: 1;
+    }
+
+    .contact-map-side {
+      height: 400px;
+      order: 2;
+    }
+
+    .map-overlay {
+      padding: var(--spacing-lg);
+      padding-top: var(--spacing-2xl);
+    }
+
+    .overlay-content h2 {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form-side {
+      padding: var(--spacing-lg);
+    }
+
+    .contact-map-side {
+      height: 350px;
+    }
+  }
+</style>
