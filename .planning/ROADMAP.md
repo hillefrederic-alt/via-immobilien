@@ -12,7 +12,7 @@ Delivering a professional, GDPR-compliant business card website for Via Immobili
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Legal Compliance** - Project setup, legal pages, design system
+- [x] **Phase 1: Foundation & Legal Compliance** - Project setup, legal pages, design system ✓
 - [ ] **Phase 2: Core Content Pages** - All 6 main pages with trust elements
 - [ ] **Phase 3: Contact & Interactivity** - Contact form, maps, click-to-call
 - [ ] **Phase 4: SEO & Performance** - Optimization, analytics, local search
@@ -38,9 +38,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md - Astro project setup and design system foundation
-- [ ] 01-02-PLAN.md - Base layout, Header, and Footer components
-- [ ] 01-03-PLAN.md - Legal pages (Impressum, Datenschutz) and cookie consent
+- [x] 01-01-PLAN.md - Astro project setup and design system foundation ✓
+- [x] 01-02-PLAN.md - Base layout, Header, and Footer components ✓
+- [x] 01-03-PLAN.md - Legal pages (Impressum, Datenschutz) and cookie consent ✓
 
 ### Phase 2: Core Content Pages
 **Goal**: Deliver all 6 main content pages with complete text, images, and trust elements
@@ -113,7 +113,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Legal Compliance | 0/0 | Not started | - |
+| 1. Foundation & Legal Compliance | 3/3 | Complete ✓ | 2026-01-30 |
 | 2. Core Content Pages | 0/0 | Not started | - |
 | 3. Contact & Interactivity | 0/0 | Not started | - |
 | 4. SEO & Performance | 0/0 | Not started | - |
