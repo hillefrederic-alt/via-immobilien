@@ -155,7 +155,7 @@ const vermietungServices = [
   />
 
   <!-- Intro Section -->
-  <Section background="white" id="intro">
+  <Section background="navy" id="intro">
     <div class="intro-content" data-aos="fade-up">
       <p class="intro-text">
         Ob Verkauf oder Vermietung - ich begleite Sie durch den gesamten Prozess.
@@ -187,7 +187,7 @@ const vermietungServices = [
   </Section>
 
   <!-- Vermietung Section -->
-  <Section background="white" id="vermietung">
+  <Section background="navy" id="vermietung">
     <div class="service-section">
       <div class="service-header" data-aos="fade-up">
         <h2>Vermietung</h2>
@@ -236,8 +236,9 @@ const vermietungServices = [
 
   .intro-text {
     font-size: var(--font-size-lg);
-    color: var(--color-text-muted);
+    color: var(--color-cream);
     line-height: var(--line-height-relaxed);
+    opacity: 0.9;
   }
 
   /* Service Section */
@@ -260,6 +261,12 @@ const vermietungServices = [
     color: var(--color-text-muted);
     max-width: 600px;
     margin-inline: auto;
+  }
+
+  /* Navy section variant */
+  :global(.section--navy) .service-subtitle {
+    color: var(--color-cream);
+    opacity: 0.9;
   }
 
   /* Service Grid - Simplified responsive grid */

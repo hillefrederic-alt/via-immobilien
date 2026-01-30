@@ -65,7 +65,7 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
   </Section>
 
   <!-- Warum ich Maklerin bin -->
-  <Section background="cream" id="motivation">
+  <Section background="navy" id="motivation">
     <div class="content-centered">
       <h2 data-aos="fade-up">Warum ich Maklerin bin</h2>
       <div class="text-content" data-aos="fade-up" data-aos-delay="100">
@@ -89,7 +89,7 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
   </Section>
 
   <!-- Wie ich arbeite -->
-  <Section background="white" id="arbeitsweise">
+  <Section background="cream" id="arbeitsweise">
     <h2 class="section-title" data-aos="fade-up">Wie ich arbeite</h2>
     <div class="points-grid">
       <div class="point-card" data-aos="fade-up" data-aos-delay="0">
@@ -128,7 +128,7 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
   </Section>
 
   <!-- Fur wen ich besonders gern arbeite -->
-  <Section background="cream" id="zielgruppe">
+  <Section background="navy" id="zielgruppe">
     <h2 class="section-title" data-aos="fade-up">Fur wen ich besonders gern arbeite</h2>
     <div class="audience-grid">
       <div class="audience-card" data-aos="fade-up" data-aos-delay="0">
@@ -254,6 +254,20 @@ import portraitSvg from '../assets/images/denise-portrait.svg';
   .text-content p {
     color: var(--color-text-muted);
     line-height: var(--line-height-relaxed);
+  }
+
+  /* Navy background variants */
+  :global(.section--navy) .content-centered .highlight-text {
+    color: var(--color-cream);
+  }
+
+  :global(.section--navy) .text-content p {
+    color: var(--color-cream);
+    opacity: 0.9;
+  }
+
+  :global(.section--navy) .section-title {
+    color: var(--color-cream);
   }
 
   /* Section Title */
