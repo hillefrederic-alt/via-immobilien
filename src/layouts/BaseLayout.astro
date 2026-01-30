@@ -6,9 +6,11 @@
  * - Consistent header and footer on every page
  * - Proper HTML structure and meta tags
  * - Legal pages always accessible via footer links
+ * - AOS scroll animations initialized globally
  */
 
 import '../styles/global.css';
+import 'aos/dist/aos.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -49,6 +51,26 @@ const {
 
     <!-- Cookie consent banner - GDPR compliant -->
     <CookieBanner />
+
+    <!-- AOS scroll animation initialization -->
+    <script>
+      import AOS from 'aos';
+
+      function initAOS() {
+        AOS.init({
+          duration: 600,
+          easing: 'ease-out',
+          once: true,
+          offset: 50
+        });
+      }
+
+      // Initialize on page load
+      initAOS();
+
+      // Re-init after Astro view transitions (future-proofing)
+      document.addEventListener('astro:after-swap', initAOS);
+    </script>
   </body>
 </html>
 
