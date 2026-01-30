@@ -1,0 +1,285 @@
+---
+/**
+ * ContactForm - Contact form with validation, honeypot, and GDPR consent
+ *
+ * Features:
+ * - Web3Forms integration for static form submission
+ * - Blur-based inline validation
+ * - Honeypot spam protection
+ * - GDPR-compliant consent checkbox
+ * - Full accessibility (ARIA attributes)
+ *
+ * @example
+ * <ContactForm />
+ */
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="contact-form"
+  novalidate
+>
+  <!-- Hidden Web3Forms fields -->
+  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+  <input type="hidden" name="redirect" value="/danke" />
+
+  <!-- Honeypot field (hidden from users, catches bots) -->
+  <input
+    type="text"
+    name="contact_number"
+    class="honeypot"
+    aria-hidden="true"
+    tabindex="-1"
+    autocomplete="off"
+  />
+
+  <!-- Name field -->
+  <div class="form-field">
+    <label for="name">Name *</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      minlength="2"
+      placeholder=" "
+      aria-describedby="name-error"
+    />
+    <span id="name-error" class="error-message" aria-live="polite">
+      Bitte geben Sie Ihren Namen ein.
+    </span>
+  </div>
+
+  <!-- Email field -->
+  <div class="form-field">
+    <label for="email">E-Mail *</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      placeholder=" "
+      aria-describedby="email-error"
+    />
+    <span id="email-error" class="error-message" aria-live="polite">
+      Bitte geben Sie eine gültige E-Mail-Adresse ein.
+    </span>
+  </div>
+
+  <!-- Phone field (optional) -->
+  <div class="form-field">
+    <label for="phone">Telefon (optional)</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+49"
+      aria-describedby="phone-error"
+    />
+  </div>
+
+  <!-- Message field -->
+  <div class="form-field">
+    <label for="message">Nachricht *</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      required
+      minlength="10"
+      placeholder=" "
+      aria-describedby="message-error"
+    ></textarea>
+    <span id="message-error" class="error-message" aria-live="polite">
+      Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen).
+    </span>
+  </div>
+
+  <!-- GDPR consent checkbox -->
+  <div class="form-field checkbox-field">
+    <input
+      type="checkbox"
+      id="consent"
+      name="consent"
+      required
+      aria-describedby="consent-error"
+    />
+    <label for="consent">
+      Ich stimme der <a href="/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> zu und willige ein, dass meine Daten zur Bearbeitung meiner Anfrage verarbeitet werden. *
+    </label>
+    <span id="consent-error" class="error-message" aria-live="polite">
+      Bitte stimmen Sie der Datenschutzerklärung zu.
+    </span>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="submit-button">
+    Nachricht senden
+  </button>
+</form>
+
+<style>
+  /* ---- Form Layout ---- */
+  .contact-form {
+    max-width: 600px;
+  }
+
+  .form-field {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* ---- Labels ---- */
+  label {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* ---- Input and Textarea Base Styles ---- */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    transition: border-color var(--transition-normal), outline var(--transition-fast);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-white);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  /* ---- Focus State (WCAG 2.2 compliant) ---- */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-color: var(--color-navy);
+  }
+
+  /* ---- Invalid State (blur + has content) ---- */
+  input[type="text"]:not(:focus):not(:placeholder-shown):invalid,
+  input[type="email"]:not(:focus):not(:placeholder-shown):invalid,
+  input[type="tel"]:not(:focus):not(:placeholder-shown):invalid,
+  textarea:not(:focus):not(:placeholder-shown):invalid {
+    border-color: #C1292E;
+    outline: 2px solid #C1292E;
+  }
+
+  /* ---- Valid State (optional positive feedback) ---- */
+  input[type="text"]:not(:focus):not(:placeholder-shown):valid,
+  input[type="email"]:not(:focus):not(:placeholder-shown):valid,
+  input[type="tel"]:not(:focus):not(:placeholder-shown):valid,
+  textarea:not(:focus):not(:placeholder-shown):valid {
+    border-color: #2E7D32;
+  }
+
+  /* ---- Error Messages ---- */
+  .error-message {
+    display: none;
+    color: #C1292E;
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Show error message when input is invalid */
+  input:not(:focus):not(:placeholder-shown):invalid + .error-message,
+  textarea:not(:focus):not(:placeholder-shown):invalid + .error-message {
+    display: block;
+  }
+
+  /* Special handling for checkbox error */
+  input[type="checkbox"]:invalid:not(:focus) ~ .error-message {
+    display: block;
+  }
+
+  /* Hide checkbox error when valid */
+  input[type="checkbox"]:valid ~ .error-message {
+    display: none;
+  }
+
+  /* ---- Honeypot Field (Hidden) ---- */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* ---- Checkbox Field Layout ---- */
+  .checkbox-field {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .checkbox-field input[type="checkbox"] {
+    width: auto;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .checkbox-field label {
+    flex: 1;
+    font-weight: var(--font-weight-normal);
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  .checkbox-field label a {
+    color: var(--color-navy);
+    text-decoration: underline;
+  }
+
+  .checkbox-field label a:hover,
+  .checkbox-field label a:focus {
+    color: var(--color-gold);
+  }
+
+  .checkbox-field .error-message {
+    flex-basis: 100%;
+    margin-top: 0;
+  }
+
+  /* ---- Submit Button ---- */
+  .submit-button {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    width: 100%;
+  }
+
+  .submit-button:hover,
+  .submit-button:focus {
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  /* ---- Responsive Adjustments ---- */
+  @media (min-width: 640px) {
+    .submit-button {
+      width: auto;
+    }
+  }
+</style>
