@@ -78,7 +78,7 @@ Resume file: None
 
 - 02-01: Component foundation (AOS, Section, Hero, ServiceCard, ProcessStep, Testimonial) - COMPLETE
 - 02-02: Homepage - COMPLETE
-- 02-03: Uber mich page - PENDING
+- 02-03: Uber mich and Leistungen pages - COMPLETE
 - 02-04: So arbeite ich, FAQ, Kontakt pages - COMPLETE
 - 02-05: Footer Instagram link - COMPLETE
 - 02-06: (reserved) - PENDING
