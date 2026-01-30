@@ -1,0 +1,406 @@
+---
+/**
+ * Leistungen (Services) Page
+ *
+ * Overview of all services offered:
+ * - Hero section with clear messaging
+ * - Intro paragraph
+ * - Immobilienverkauf section with ServiceCards
+ * - Vermietung section with ServiceCards
+ * - CTA section
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+// Immobilienverkauf services (7 items)
+const verkaufServices = [
+  {
+    title: 'Marktanalyse',
+    items: [
+      'Aktuelle Marktpreise in Ihrer Region',
+      'Vergleich mit aehnlichen Objekten',
+      'Prognose der Preisentwicklung',
+      'Zielgruppenanalyse'
+    ]
+  },
+  {
+    title: 'Wertermittlung',
+    items: [
+      'Professionelle Immobilienbewertung',
+      'Beruecksichtigung aller Faktoren',
+      'Realistische Preisempfehlung',
+      'Schriftliches Wertgutachten'
+    ]
+  },
+  {
+    title: 'Objektaufbereitung',
+    items: [
+      'Professionelle Fotoaufnahmen',
+      'Ansprechende Objektbeschreibung',
+      'Grundrissaufbereitung',
+      'Optional: Home Staging Beratung'
+    ]
+  },
+  {
+    title: 'Vermarktung',
+    items: [
+      'Anzeigen auf fuehrenden Portalen',
+      'Zielgruppengerechte Ansprache',
+      'Social Media Marketing',
+      'Diskrete Vermarktung auf Wunsch'
+    ]
+  },
+  {
+    title: 'Besichtigungen',
+    items: [
+      'Koordination aller Termine',
+      'Professionelle Durchfuehrung',
+      'Qualifizierung der Interessenten',
+      'Detaillierte Rueckmeldungen'
+    ]
+  },
+  {
+    title: 'Verhandlung',
+    items: [
+      'Pruefung der Kaufangebote',
+      'Verhandlungsfuehrung in Ihrem Interesse',
+      'Bonitaetspruefung der Kaeufer',
+      'Absicherung der Finanzierung'
+    ]
+  },
+  {
+    title: 'Vertragsabwicklung',
+    items: [
+      'Vorbereitung aller Unterlagen',
+      'Koordination mit Notar',
+      'Begleitung bis zur Uebergabe',
+      'Unterstuetzung bei Formalitaeten'
+    ]
+  }
+];
+
+// Vermietung services (6 items)
+const vermietungServices = [
+  {
+    title: 'Mietpreisanalyse',
+    items: [
+      'Ermittlung der marktgerechten Miete',
+      'Beruecksichtigung von Mietspiegel',
+      'Optimierung des Mietpreises',
+      'Nebenkosten-Kalkulation'
+    ]
+  },
+  {
+    title: 'Objektpraesentation',
+    items: [
+      'Professionelle Fotoaufnahmen',
+      'Aussagekraeftiges Expose',
+      'Energieausweis-Beschaffung',
+      'Grundriss-Erstellung'
+    ]
+  },
+  {
+    title: 'Mietersuche',
+    items: [
+      'Veroeffentlichung auf Immobilienportalen',
+      'Vorauswahl geeigneter Bewerber',
+      'Durchfuehrung von Besichtigungen',
+      'Koordination aller Anfragen'
+    ]
+  },
+  {
+    title: 'Mieterauswahl',
+    items: [
+      'Bonitaetspruefung',
+      'Einkommensnachweis-Pruefung',
+      'Referenzeinholung',
+      'Persoenliches Gespraech'
+    ]
+  },
+  {
+    title: 'Vertragsgestaltung',
+    items: [
+      'Rechtssicherer Mietvertrag',
+      'Individuelle Anpassungen',
+      'Hausordnung und Anlagen',
+      'Kautionsvereinbarung'
+    ]
+  },
+  {
+    title: 'Uebergabe',
+    items: [
+      'Erstellung Uebergabeprotokoll',
+      'Dokumentation des Zustands',
+      'Zaehlerstaende erfassen',
+      'Schluesseluebergabe'
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Leistungen - Via Immobilien | Verkauf und Vermietung"
+  description="Meine Leistungen im Ueberblick: Professionelle Unterstuetzung beim Immobilienverkauf und bei der Vermietung. Klar, uebersichtlich, verstaendlich."
+>
+  <!-- Hero Section -->
+  <Hero
+    headline="Leistungen"
+    subheadline="Klar. Uebersichtlich. Verstaendlich."
+    ctaText="Beratung anfragen"
+    ctaHref="/kontakt"
+    secondaryCta={{ text: 'So arbeite ich', href: '/so-arbeite-ich' }}
+  />
+
+  <!-- Intro Section -->
+  <Section background="white" id="intro">
+    <div class="intro-content" data-aos="fade-up">
+      <p class="intro-text">
+        Ob Verkauf oder Vermietung - ich begleite Sie durch den gesamten Prozess.
+        Von der ersten Beratung bis zum erfolgreichen Abschluss. Hier finden Sie
+        einen Ueberblick ueber meine Leistungen. Alle Schritte sind inbegriffen,
+        keine versteckten Kosten.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Immobilienverkauf Section -->
+  <Section background="cream" id="verkauf">
+    <div class="service-section">
+      <div class="service-header" data-aos="fade-up">
+        <h2>Immobilienverkauf</h2>
+        <p class="service-subtitle">
+          Ihr Weg zum erfolgreichen Verkauf - strukturiert und transparent
+        </p>
+      </div>
+      <div class="service-grid service-grid--7">
+        {verkaufServices.map((service, index) => (
+          <ServiceCard
+            title={service.title}
+            items={service.items}
+          />
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Vermietung Section -->
+  <Section background="white" id="vermietung">
+    <div class="service-section">
+      <div class="service-header" data-aos="fade-up">
+        <h2>Vermietung</h2>
+        <p class="service-subtitle">
+          Den richtigen Mieter finden - sorgfaeltig und zuverlaessig
+        </p>
+      </div>
+      <div class="service-grid service-grid--6">
+        {vermietungServices.map((service, index) => (
+          <ServiceCard
+            title={service.title}
+            items={service.items}
+          />
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <Section background="navy" id="cta">
+    <div class="cta-content" data-aos="fade-up">
+      <h2>Haben Sie Fragen zu meinen Leistungen?</h2>
+      <p class="cta-text">
+        Jede Immobilie ist einzigartig. Lassen Sie uns gemeinsam besprechen,
+        wie ich Sie am besten unterstuetzen kann.
+      </p>
+      <div class="cta-actions">
+        <a href="/kontakt" class="cta-button cta-button--primary">
+          Kostenlose Beratung
+        </a>
+        <a href="/ueber-mich" class="cta-button cta-button--secondary">
+          Mehr ueber mich
+        </a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  /* Intro Content */
+  .intro-content {
+    max-width: 800px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Service Section */
+  .service-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .service-header {
+    text-align: center;
+  }
+
+  .service-header h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  /* Service Grid */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 640px) {
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Special grid for 7 items: 4-3 layout on large screens */
+    .service-grid--7 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-grid--7 > :nth-child(n+5) {
+      grid-column: span 1;
+    }
+
+    /* Center the last row of 3 items */
+    .service-grid--7 > :nth-child(5) {
+      grid-column: 1 / 2;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    /* Refined 7-item grid: first row 4, second row 3 centered */
+    .service-grid--7 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--spacing-xl);
+    }
+
+    .service-grid--7 > :nth-child(1),
+    .service-grid--7 > :nth-child(2),
+    .service-grid--7 > :nth-child(3),
+    .service-grid--7 > :nth-child(4) {
+      grid-column: span 3;
+    }
+
+    .service-grid--7 > :nth-child(5) {
+      grid-column: 1 / 5;
+    }
+
+    .service-grid--7 > :nth-child(6) {
+      grid-column: 5 / 9;
+    }
+
+    .service-grid--7 > :nth-child(7) {
+      grid-column: 9 / 13;
+    }
+
+    /* 6-item grid: 3-3 layout */
+    .service-grid--6 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* CTA Section */
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .cta-content h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-cream);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    min-width: 180px;
+  }
+
+  .cta-button--primary {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border: 2px solid var(--color-gold);
+  }
+
+  .cta-button--primary:hover,
+  .cta-button--primary:focus {
+    background-color: var(--color-cream);
+    border-color: var(--color-cream);
+  }
+
+  .cta-button--secondary {
+    background-color: transparent;
+    color: var(--color-cream);
+    border: 2px solid var(--color-cream);
+  }
+
+  .cta-button--secondary:hover,
+  .cta-button--secondary:focus {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 640px) {
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>
