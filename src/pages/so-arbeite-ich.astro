@@ -1,0 +1,139 @@
+---
+/**
+ * So arbeite ich - Process page showing Denise's step-by-step approach
+ *
+ * Builds trust by explaining transparent, structured working method.
+ * Uses ProcessStep component for visual timeline of 4-step process.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+---
+
+<BaseLayout
+  title="So arbeite ich | Via Immobilien"
+  description="Meine Arbeitsweise: Strukturiert, transparent und Schritt fur Schritt - von der ehrlichen Ersteinschatzung bis zum erfolgreichen Abschluss."
+>
+  <Hero
+    headline="So arbeite ich"
+    subheadline="Strukturiert. Transparent. Schritt fur Schritt."
+    ctaText="Kontakt aufnehmen"
+    ctaHref="/kontakt"
+  />
+
+  <Section background="white">
+    <div class="intro">
+      <p>
+        Ein Immobilienverkauf ist keine Alltagsentscheidung. Deshalb begleite ich Sie
+        mit klarer Struktur und offener Kommunikation durch jeden Schritt. Sie wissen
+        immer, wo wir stehen und was als Nachstes kommt.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="cream">
+    <h2 class="section-title">Mein Arbeitsprozess</h2>
+
+    <div class="process-timeline">
+      <ProcessStep
+        step={1}
+        title="Kennenlernen & ehrliche Einschatzung"
+        description="In einem personlichen Gesprach lernen wir uns kennen. Ich hore zu, stelle Fragen und verschaffe mir einen ersten Eindruck von Ihrer Immobilie. Dabei bin ich von Anfang an ehrlich - auch wenn das bedeutet, Ihnen mitzuteilen, dass Ihre Preisvorstellung nicht realistisch ist."
+      />
+
+      <ProcessStep
+        step={2}
+        title="Realistische Preisfindung & Vorbereitung"
+        description="Gemeinsam ermitteln wir einen marktgerechten Preis. Ich bereite alle notwendigen Unterlagen vor, erstelle professionelle Fotos und ein aussagekraftiges Expose. Sie erhalten volle Transparenz uber jeden Schritt."
+      />
+
+      <ProcessStep
+        step={3}
+        title="Vermarktung & Organisation"
+        description="Ihre Immobilie wird gezielt und mit Bedacht prasentiert. Ich organisiere Besichtigungen, beantworte Anfragen und halte Sie regelma&szlig;ig auf dem Laufenden. Keine unangekündigten Besuche, keine Massentermine."
+      />
+
+      <ProcessStep
+        step={4}
+        title="Auswahl & Abstimmung"
+        description="Wir besprechen alle Interessenten gemeinsam. Die finale Entscheidung treffen immer Sie. Ich begleite Sie bis zum Notartermin und daruber hinaus - fur einen reibungslosen Abschluss."
+        isLast={true}
+      />
+    </div>
+  </Section>
+
+  <Section background="navy" class="cta-section">
+    <div class="cta-content">
+      <h2>Bereit fur den nachsten Schritt?</h2>
+      <p>Lassen Sie uns in einem unverbindlichen Gesprach herausfinden, wie ich Sie unterstutzen kann.</p>
+      <a href="/kontakt" class="cta-button">Kontakt aufnehmen</a>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .intro {
+    max-width: 70ch;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .intro p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy);
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .process-timeline {
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+  }
+
+  .cta-button:hover,
+  .cta-button:focus {
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+  }
+</style>
