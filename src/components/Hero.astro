@@ -79,13 +79,53 @@ const {
     align-items: center;
     justify-content: center;
     padding-block: var(--spacing-3xl);
-    background-color: var(--color-cream);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream) 50%, var(--color-navy) 50%, var(--color-navy) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative geometric shapes */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: var(--color-gold);
+    opacity: 0.1;
+    transform: rotate(45deg);
+    animation: float 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
   }
 
   .hero__content {
     text-align: center;
     max-width: 800px;
     margin-inline: auto;
+    position: relative;
+    z-index: 1;
+    background: rgba(245, 240, 234, 0.95);
+    padding: var(--spacing-2xl) var(--spacing-3xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 60px rgba(20, 35, 51, 0.15);
   }
 
   .hero__headline {
@@ -97,7 +137,7 @@ const {
   .hero__subheadline {
     font-family: var(--font-serif);
     font-size: var(--font-size-xl);
-    color: var(--color-gold);
+    color: #9A7B4F; /* Darker gold for better contrast (WCAG AA compliant) */
     margin-bottom: var(--spacing-lg);
     font-style: italic;
   }
@@ -161,6 +201,17 @@ const {
     .hero {
       min-height: auto;
       padding-block: var(--spacing-2xl);
+      background: linear-gradient(160deg, var(--color-cream) 0%, var(--color-cream) 60%, var(--color-navy) 60%, var(--color-navy) 100%);
+    }
+
+    .hero__content {
+      padding: var(--spacing-xl) var(--spacing-lg);
+      margin: var(--spacing-md);
+    }
+
+    .hero::before,
+    .hero::after {
+      display: none;
     }
 
     .hero__actions {

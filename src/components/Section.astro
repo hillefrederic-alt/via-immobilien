@@ -72,11 +72,16 @@ const backgroundClass = `section--${background}`;
 
   .section--navy :global(h1),
   .section--navy :global(h2),
-  .section--navy :global(h3),
+  .section--navy :global(h3:not(.service-card__title)),
   .section--navy :global(h4),
   .section--navy :global(h5),
   .section--navy :global(h6) {
     color: var(--color-cream);
+  }
+
+  /* Service card titles stay navy on white card backgrounds */
+  .section--navy :global(.service-card__title) {
+    color: var(--color-navy);
   }
 
   .section--navy :global(a:not(.cta-button):not(.cta-section__button):not([class*="cta"])) {
