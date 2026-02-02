@@ -56,6 +56,9 @@ const ogImage = new URL(image, Astro.site).toString();
       crossorigin
     />
 
+    <!-- Plausible Analytics - DSGVO-konform, kein Cookie-Banner nötig -->
+    <script defer data-domain="via-immobilien.com" src="https://plausible.io/js/script.js"></script>
+
     <SEO
       title={title}
       description={description}
