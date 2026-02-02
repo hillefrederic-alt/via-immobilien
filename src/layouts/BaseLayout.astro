@@ -86,7 +86,8 @@ const ogImage = new URL(image, Astro.site).toString();
         ],
         link: [
           { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-          { rel: 'icon', href: '/favicon.ico' }
+          { rel: 'icon', href: '/favicon.ico' },
+          { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
         ]
       }}
     />
@@ -102,16 +103,16 @@ const ogImage = new URL(image, Astro.site).toString();
       "email": "denise@via-immobilien.de",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "PLACEHOLDER_STREET",
-        "addressLocality": "PLACEHOLDER_CITY",
+        "streetAddress": "Emser Straße 15",
+        "addressLocality": "Wiesbaden",
         "addressRegion": "Hessen",
-        "postalCode": "PLACEHOLDER_ZIP",
+        "postalCode": "65195",
         "addressCountry": "DE"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 50.1109,
-        "longitude": 8.6821
+        "latitude": 50.0782,
+        "longitude": 8.2398
       },
       "areaServed": {
         "@type": "Place",
