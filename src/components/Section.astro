@@ -72,7 +72,7 @@ const backgroundClass = `section--${background}`;
 
   .section--navy :global(h1),
   .section--navy :global(h2),
-  .section--navy :global(h3:not(.service-card__title):not(.target-card__title)),
+  .section--navy :global(h3:not(.service-card__title):not(.target-card__title):not(.audience-card__title)),
   .section--navy :global(h4),
   .section--navy :global(h5),
   .section--navy :global(h6) {
@@ -81,7 +81,8 @@ const backgroundClass = `section--${background}`;
 
   /* Card titles stay navy on white/cream card backgrounds */
   .section--navy :global(.service-card__title),
-  .section--navy :global(.target-card__title) {
+  .section--navy :global(.target-card__title),
+  .section--navy :global(.audience-card__title) {
     color: var(--color-navy);
   }
 
