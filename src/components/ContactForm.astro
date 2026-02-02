@@ -3,27 +3,31 @@
  * ContactForm - Contact form with validation, honeypot, and GDPR consent
  *
  * Features:
- * - Web3Forms integration for static form submission
+ * - Cloudflare Worker backend for form submission
  * - Blur-based inline validation
  * - Honeypot spam protection
  * - GDPR-compliant consent checkbox
  * - Full accessibility (ARIA attributes)
+ * - Loading state and error handling
  *
  * @example
  * <ContactForm />
  */
+
+interface Props {
+  /** Worker URL - defaults to production, override for local dev */
+  workerUrl?: string;
+}
+
+const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astro.props;
 ---
 
 <form
-  action="https://api.web3forms.com/submit"
-  method="POST"
+  id="contact-form"
   class="contact-form"
   novalidate
+  data-worker-url={workerUrl}
 >
-  <!-- Hidden Web3Forms fields -->
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-  <input type="hidden" name="redirect" value="/danke" />
-
   <!-- Honeypot field (hidden from users, catches bots) -->
   <input
     type="text"
@@ -113,9 +117,13 @@
     </span>
   </div>
 
+  <!-- Status message -->
+  <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+
   <!-- Submit button -->
   <button type="submit" class="submit-button">
-    Nachricht senden
+    <span class="button-text">Nachricht senden</span>
+    <span class="button-loading">Wird gesendet...</span>
   </button>
 </form>
 
@@ -254,6 +262,28 @@
     margin-top: 0;
   }
 
+  /* ---- Form Status ---- */
+  .form-status {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    display: none;
+  }
+
+  .form-status.success {
+    display: block;
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #2E7D32;
+  }
+
+  .form-status.error {
+    display: block;
+    background-color: #FFEBEE;
+    color: #C1292E;
+    border: 1px solid #C1292E;
+  }
+
   /* ---- Submit Button ---- */
   .submit-button {
     background-color: var(--color-gold);
@@ -276,6 +306,23 @@
     outline-offset: 2px;
   }
 
+  .submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .submit-button .button-loading {
+    display: none;
+  }
+
+  .submit-button.loading .button-text {
+    display: none;
+  }
+
+  .submit-button.loading .button-loading {
+    display: inline;
+  }
+
   /* ---- Responsive Adjustments ---- */
   @media (min-width: 640px) {
     .submit-button {
@@ -283,3 +330,70 @@
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitButton = form?.querySelector('.submit-button') as HTMLButtonElement;
+  const statusDiv = document.getElementById('form-status') as HTMLDivElement;
+  const workerUrl = form?.dataset.workerUrl || '';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset status
+    statusDiv.className = 'form-status';
+    statusDiv.textContent = '';
+
+    // Check form validity
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+
+    try {
+      // Gather form data
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone') || undefined,
+        message: formData.get('message'),
+        consent: formData.get('consent') ? 'on' : '',
+        contact_number: formData.get('contact_number') || undefined,
+      };
+
+      // Send to Worker
+      const response = await fetch(workerUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // Success - redirect to thank you page
+        window.location.href = '/danke';
+      } else {
+        // Show error
+        statusDiv.className = 'form-status error';
+        statusDiv.textContent = result.error || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
+        if (result.details) {
+          statusDiv.textContent += ' ' + result.details.join(', ');
+        }
+      }
+    } catch (error) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = 'Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.classList.remove('loading');
+    }
+  });
+</script>
