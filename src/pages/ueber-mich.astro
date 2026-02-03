@@ -16,7 +16,7 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 
 // Import images
-import portraitSvg from '../assets/images/denise-portrait.svg';
+import portraitImage from '../assets/images/denise-portrait.jpg';
 import motivationImage from '../assets/images/motivation-placeholder.svg';
 import zielgruppeImage from '../assets/images/zielgruppe-placeholder.svg';
 ---
@@ -38,11 +38,12 @@ import zielgruppeImage from '../assets/images/zielgruppe-placeholder.svg';
     <div class="intro-grid">
       <div class="intro-grid__image" data-aos="fade-right">
         <img
-          src={portraitSvg.src}
+          src={portraitImage.src}
           alt="Denise Semmel - Ihre Immobilienmaklerin"
           class="portrait"
           width="400"
           height="500"
+          loading="eager"
         />
       </div>
       <div class="intro-grid__content" data-aos="fade-left" data-aos-delay="100">
