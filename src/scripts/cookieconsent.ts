@@ -125,7 +125,7 @@ export function initCookieConsent(): void {
               {
                 title: 'Weitere Informationen',
                 description:
-                  'Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter <a href="mailto:denise@via-immobilien.de">denise@via-immobilien.de</a>. Weitere Details finden Sie in unserer <a href="/datenschutz">Datenschutzerklarung</a>.',
+                  'Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter <a href="mailto:mail@via-immobilien.com">mail@via-immobilien.com</a>. Weitere Details finden Sie in unserer <a href="/datenschutz">Datenschutzerklarung</a>.',
               },
             ],
           },
