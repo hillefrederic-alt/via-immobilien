@@ -17,16 +17,25 @@
 interface Props {
   /** Worker URL - defaults to production, override for local dev */
   workerUrl?: string;
+  /** Turnstile Site Key */
+  turnstileSiteKey?: string;
 }
 
-const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astro.props;
+const {
+  workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev',
+  turnstileSiteKey = '0x4AAAAAAAy_INSERT_YOUR_SITE_KEY_HERE'
+} = Astro.props;
 ---
+
+<!-- Cloudflare Turnstile Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <form
   id="contact-form"
   class="contact-form"
   novalidate
   data-worker-url={workerUrl}
+  data-turnstile-key={turnstileSiteKey}
 >
   <!-- Honeypot field (hidden from users, catches bots) -->
   <input
@@ -114,6 +123,19 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
     </label>
     <span id="consent-error" class="error-message" aria-live="polite">
       Bitte stimmen Sie der Datenschutzerklärung zu.
+    </span>
+  </div>
+
+  <!-- Cloudflare Turnstile Widget -->
+  <div class="form-field turnstile-field">
+    <div
+      class="cf-turnstile"
+      data-sitekey={turnstileSiteKey}
+      data-theme="light"
+      data-language="de"
+    ></div>
+    <span id="turnstile-error" class="error-message" aria-live="polite">
+      Bitte bestätigen Sie, dass Sie kein Roboter sind.
     </span>
   </div>
 
@@ -262,6 +284,15 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
     margin-top: 0;
   }
 
+  /* ---- Turnstile Widget ---- */
+  .turnstile-field {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .turnstile-field .error-message {
+    margin-top: var(--spacing-sm);
+  }
+
   /* ---- Form Status ---- */
   .form-status {
     padding: var(--spacing-md);
@@ -335,6 +366,7 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const submitButton = form?.querySelector('.submit-button') as HTMLButtonElement;
   const statusDiv = document.getElementById('form-status') as HTMLDivElement;
+  const turnstileError = document.getElementById('turnstile-error') as HTMLSpanElement;
   const workerUrl = form?.dataset.workerUrl || '';
 
   form?.addEventListener('submit', async (e) => {
@@ -343,10 +375,18 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
     // Reset status
     statusDiv.className = 'form-status';
     statusDiv.textContent = '';
+    turnstileError.style.display = 'none';
 
     // Check form validity
     if (!form.checkValidity()) {
       form.reportValidity();
+      return;
+    }
+
+    // Get Turnstile response
+    const turnstileResponse = (window as any).turnstile?.getResponse();
+    if (!turnstileResponse) {
+      turnstileError.style.display = 'block';
       return;
     }
 
@@ -364,6 +404,7 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
         message: formData.get('message'),
         consent: formData.get('consent') ? 'on' : '',
         contact_number: formData.get('contact_number') || undefined,
+        'cf-turnstile-response': turnstileResponse,
       };
 
       // Send to Worker
@@ -387,10 +428,14 @@ const { workerUrl = 'https://via-immobilien-kontakt.fh-45a.workers.dev' } = Astr
         if (result.details) {
           statusDiv.textContent += ' ' + result.details.join(', ');
         }
+        // Reset Turnstile on error
+        (window as any).turnstile?.reset();
       }
     } catch (error) {
       statusDiv.className = 'form-status error';
       statusDiv.textContent = 'Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung.';
+      // Reset Turnstile on error
+      (window as any).turnstile?.reset();
     } finally {
       submitButton.disabled = false;
       submitButton.classList.remove('loading');

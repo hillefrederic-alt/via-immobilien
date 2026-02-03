@@ -1,0 +1,31 @@
+/**
+ * Via Immobilien - Kontaktformular Worker
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "via-immobilien-kontakt",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-01-28",
+	"observability": {
+		"enabled": true
+	},
+
+	/**
+	 * Environment Variables (non-sensitive)
+	 * Sensitive data like API keys should be set via:
+	 * npx wrangler secret put RESEND_API_KEY
+	 */
+	"vars": {
+		"ALLOWED_ORIGIN": "https://via-immobilien.com",
+		"TO_EMAIL": "mail@via-immobilien.com"
+	}
+
+	/**
+	 * Secrets (set via CLI, not in this file!):
+	 * - RESEND_API_KEY: Your Resend API key
+	 *
+	 * To set secrets, run:
+	 * npx wrangler secret put RESEND_API_KEY
+	 */
+}
